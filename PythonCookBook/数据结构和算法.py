@@ -10,9 +10,7 @@ def drop_first_last(items):
 print (drop_first_last(L))
 
 #*式的语法在可迭代的变长元组序列时尤其有用
-recrords = [('foo',1,2),
-             ('bar','hellow'),
-             ('foo',3,4)]
+recrords = [('foo',1,2),('bar','hellow'),('foo',3,4)]
 
 def do_foo(x,y):
     print ('foo',x,y)
@@ -78,7 +76,6 @@ q.appendleft(4)
 print (q)
 
 q.pop()
-
 q.popleft()
 
 #从队列两端添加或弹出元素的复杂度都为O（1），列表为O(N)。
@@ -227,3 +224,21 @@ prices_sorted = sorted(zip(prices.values(),prices.keys()))
 #注意zip()创建了一个迭代器，它的内用只能被消费一次。
 
 #1.9在两个字典中寻找相同的点
+
+a = {'x':1,'y':2,'z':3}
+
+b = {'w':10,'x':11,'y':2}
+
+#Find keys in common
+a.keys() & b.keys() #{'x','y'}
+
+#Find keys in a that are not in b
+a.keys() - b.keys() #{'z'}
+
+#Find（key,value)pairs in common
+a.items() &b.items() #{('y',2)}
+
+"""
+
+"""
+
