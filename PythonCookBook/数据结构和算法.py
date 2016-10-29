@@ -153,7 +153,7 @@ print (q.pop())
 操作，且保证列表中第一个元素的优先级最低。heapqpop()总是返回优先级最低的
 元素。
 """   
-#Item实例时无法比较的，但元组可以比较,元组首先比较第一个元素，然后是第二个。。。
+#Item实例时无法比较的，但元组可以比较,元组首先比较第一个元素，然后是第二个。
 a = (2,Item('foo'),1)
 b = (3,Item('bar'),5)
 if a<b:
@@ -164,3 +164,66 @@ if a<b:
 利用collection模块中的defaultdict类，defaultdictde的一个特点就是他会
 自动创建初始化第一个值，这样只需要关注添加的元素即可。
 """   
+
+from collections import defaultdict
+
+d = defaultdict(list)
+d['a'].append(1)
+d['a'].append(2)
+d['a'].append(4)
+print (d)
+
+d = defaultdict(set)
+d['a'].add(1)
+d['a'].add(2)
+d['a'].add(4)
+print (d)
+
+#使用传统方法，构建一键多值
+d ={}
+pairs=[(1,2),(2,3),(1,3),(2,4),(3,4)(4,1)]
+for key ,value in pairs:
+    if key not in d:
+        d[key] = []
+    d[key].append(value)
+ 
+#使用defaultdict 后代码：
+d = defaultdict(list)
+for key,value in pairs:
+    d[key].append(value)
+
+#1.7让字典保持有序
+"""
+使用collections模块中的OrederedDict类。当对字典做迭代时，他会严格按照元
+素添加的顺序进行
+"""
+from collections import OrderedDict
+
+d = OrderedDict()
+d['foo'] = 1
+d['bar'] = 2
+d['spam'] = 3
+d['grok'] = 4
+
+for key in d:
+    print(key,d[key])
+
+#当想构建一个映射结构以便稍后对其做序列化或编码成另一种格式时用OrderedDict
+"""
+OrderedDict内部维护了一个双向链表，它会根据元素添加的顺序来排列建的位置。第
+一个新加的元素被放置在链表末尾。接下来对已存在的元素重新赋值不会改变键的顺序。
+"""
+
+#1.8与字典相关的计算问题。
+
+prices = {'ACEM':45.23,'APPL':634,'IBM':205,'HOP':37,'FB':10}
+
+#利用zip()将字典的键和值翻转过来
+min_price = min(zip(prices.values(),prices.keys()))
+
+#要对数据排序只要使用zip()再配合sorted()就可以了。
+prices_sorted = sorted(zip(prices.values(),prices.keys()))
+
+#注意zip()创建了一个迭代器，它的内用只能被消费一次。
+
+#1.9在两个字典中寻找相同的点
