@@ -146,9 +146,8 @@ print (q.pop())
 print (q.pop())    
 
 """
-函数heapq.heappush和heapq.heappop（）分别实现讲元素从列表中插入和移除
-操作，且保证列表中第一个元素的优先级最低。heapqpop()总是返回优先级最低的
-元素。
+函数heapq.heappush和heapq.heappop（）分别实现讲元素从列表中插入和移除操
+作，且保证列表中第一个元素的优先级最低。heapqpop()总是返回优先级最低的元素。
 """   
 #Item实例时无法比较的，但元组可以比较,元组首先比较第一个元素，然后是第二个。
 a = (2,Item('foo'),1)
@@ -178,7 +177,7 @@ print (d)
 
 #使用传统方法，构建一键多值
 d ={}
-pairs=[(1,2),(2,3),(1,3),(2,4),(3,4)(4,1)]
+pairs=[(1,2),(2,3),(1,3),(2,4),(3,4),(4,1)]
 for key ,value in pairs:
     if key not in d:
         d[key] = []
@@ -236,9 +235,285 @@ a.keys() & b.keys() #{'x','y'}
 a.keys() - b.keys() #{'z'}
 
 #Find（key,value)pairs in common
-a.items() &b.items() #{('y',2)}
+a.items() & b.items() #{('y',2)}
 
 """
+这类型的操作也可以用来修改或过滤掉字典中内容，下面利用列表推导式去掉某些键
+"""
+
+c = {key:a[key] for key in a.keys() - {'z','w'}}
+#c is {'x':1,'y':2}
 
 """
+字典是一系列键和值之间的映射集合。字典的keys()方法返回keys-view对象，其中
+暴露了所有的键。关于字典的键有一个很少人知道的特性，那就是是他们也支持常见得
+集合操作，比如求并集、交集、差集。
+字典的items()方法返回由（key,value)对组成的items-view对象。这个对象支持
+类似的集合操作，可以用来完成找出两个字典间有哪些键值对相同的操作。
+"""
+
+#1.10 从序列中移除重复的元素，且保持元素的顺序不变
+
+#如果序列中的值是可哈希（hashable)的，可以通过使用集合和生成器解决
+
+def dedupe(items):
+    seen = set()
+    for item in items:
+        if item not in seen:
+            yield item
+            seen.add(item)
+
+a = [1,2,5,1,9,5,10,2]
+
+list(dedupe(a))
+
+"""
+如果一个对象是可哈希的，那么在它的生存期内必须是不可变的，它需要一个__hash__()
+方法。整数、浮点数、字符串、元组都是不可变的。
+"""
+#如果想在不可哈希的对象（比如列表）序列中去除重复项，代码如下：
+def dedupe(items , key = None):
+    seen = set()
+    for item in items:
+        val = item if key is None else key(item)
+        #key(item)这个地方不是很懂
+        if val not in seen:
+            yield item
+            seen.add(val)
+#这里的参数key 的作用是指定一个函数用来将序列中的元素转换可哈希的类型。
+
+a = [{'x':1,'y':2},{'x':1,'y':3},{'x':1,'y':2},{'x':2,'y':4}]
+
+b = list(dedupe(a,key=lambda d:(d['x'],d['y'])))
+print (b)
+
+b = list(dedupe(a,key=lambda d:d['x']))
+print (b)
+
+#1.11对切片命名
+
+#内置的slice（）函数会创建一个切片对象，可以用在任何允许进行切片操作的地方。
+
+items = [0,1,2,3,4,5,6,7,8,9]
+a =slice(2,4)
+
+print(items[2:4])
+print(items[a])
+
+items[a] = [10,11]
+print(items)
+
+del items[a]
+print(items)
+
+print(a.start)
+
+"""
+如果有一个slice对象的实例s,可以分别通过s.start,s.stop以及s.step属性获
+取对象相关信息
+"""
+
+#1.12找出序列中出现次数最多的元素。
+
+#collections 模块中Counter类，可以使用most_common()方法可以实现。
+
+words = ['look','my','into','eyes','look','into','my','eye',
+         'the','look','my','into','my','into','eyes','look',
+         'the','look','my',]
+
+from collections import Counter
+
+word_counts = Counter(words)
+top_three = word_counts.most_common(3)
+print (top_three)
+
+"""
+可以给Counter对象提供任何可哈希的对象作为输入。在底层实现中，Counter是一个
+字典，在元素和他们出现的次数间做映射。
+"""
+
+print(word_counts['look'])
+
+#使用update()
+
+morewords = ['why','are','you','not','looking','in','my','eye']
+word_counts.update(morewords)
+
+#关于Counter对象，它可以轻松地同各类数学运算操作结合使用
+
+a =Counter(words)
+b = Counter(morewords)
+
+c =a+b
+print (c)
+
+d = a-b
+print(d)
+
+#1.13通过公共键对字典进行排序
+#利用operator模块的itemgetter函数对字典列表进行排序
+
+rows = [{'fname':'Brian','lname':'Jones','uid':1003},
+       {'fname':'David','lname':'Beazley','uid':1002},
+       {'fname':'John','lname':'Cleese','uid':1001},
+       {'fname':'Big','lname':'Jones','uid':1004},]
+
+#根据所有字典的共有字段来对这些记录排序
+from operator import itemgetter
+
+rows_by_fname = sorted(rows,key = itemgetter('fname'))
+rows_by_uis = sorted(rows,key = itemgetter('uid'))
+
+print (rows_by_fname)
+print (rows_by_uis)
+
+#itemgetter()函数还可以接受多个键
+rows_by_lfname = sorted(rows,key = itemgetter('lname','fname'))
+print (rows_by_lfname)
+
+"""
+rows 被传递给内建的sorted()函数，该函数接受一个关键字参数key.这个参数应该
+代表一个可调用对象（callable)，该对象从rows中接受一个单独的元素作为输入并
+返回一个用以做排序依据的值。
+"""
+
+#有时候会用lambda 表达式来取代itemgetter()的功能
+
+rows_by_fname = sorted(rows,key = lambda r:r['fname'])
+print (rows_by_fname)
+
+rows_by_lfname = sorted(rows,key = lambda r: (r['lname'],r['fname']))
+print (rows_by_lfname)
+
+#itemgetter()同样适合于min()和max()这样的函数
+
+#1.14对不原生支持比较操作的对象排序。
+
+#1.15根据字段将记录分组
+#itertools.groupby()函数对数据分组有用。
+from itertools import groupby
+
+rows.sort(key = itemgetter('uid'))
+
+for lname ,items in groupby(rows,key = itemgetter('lname')):
+    print(lname)
+    for i in items:
+        print(' ',i)
+"""
+函数groupby()通过扫描序列找出拥有相同值（或是由参数key指定的函数所返回的值）
+的序列项，并将它们分组。groupby()创建一个迭代器，而在每次迭代时都会返回一个
+值（value）和一个子迭代器（sub_iterator），这个子迭代器可以产生所有在该分
+组内的该项的值。
+"""
+
+#1.16筛选元素
+#使用列表推导式。
+
+mylist = [1,4,-5,10,2,3,-1,-3,4,6]
+a = [n for n in mylist if n > 0]
+
+#使用生成器表达式通过迭代的方式产生筛选结果
+pos = (n for n in mylist if n > 0)
+
+#可以将处理筛选逻辑的代码放在一个单独的函数中，然后使用内建的filter()函数处理。
+
+values = ['1','2','N/A','-','4','*-','5']
+
+def is_int(val):
+    try :
+        x =int(val)
+        return True
+    except ValueError:
+        return False
+
+ivals = list(filter(is_int,values)) #filter()函数创建一个迭代器。
+
+print(ivals)
+#对数据进行转换
+mylist = [1,4,-5,10,2,3,-1,-3,4,6]
+import math
+a = [math.sqrt(n) for n in mylist if n>0]
+print (a)
+
+clip_neg =[n if n>0 else 0 for n in mylist]
+print (clip_neg)
+
+"""
+itertolls.compress()接受一个可以迭代的对象以及一个布尔选择器序列作为输入。
+输出时，它会给出所有在相应的布尔选择器中为True的可迭代对象元素。
+"""
+
+#1.17从字典中提取子集
+#利用字典推导式轻松解决
+
+prices = {'ACME':45.23,'AAPL':612.78,'IBM':205.55,
+          'HOP':37.10,'FB':10.75}
+
+p1 = {key:value for key,value in prices.items() if value >200}
+print (p1)
+
+#1.18将名称映射到序列的元素中
+#collections.namedtuple()(命名元组）可以通过名称来访问元素。
+
+from collections import namedtuple
+
+Subscriber = namedtuple('Subscriber',['addr','joined'])
+sub = Subscriber('jonesy@example.com','2012-10-19')
+print (sub.addr)
+print (sub.joined)
+
+#namedtuple的实例与普通元组是可互换的，而且支持所有普通元组所支持的操作
+len(sub)
+addr,joined = sub
+
+Stock = namedtuple('Stock',['shares','price'])
+def computer_cost(records):
+    total =0
+    for rec in records:
+        s = Stock(*rec)
+        total+=s.shares*s.price
+    return total 
+
+#1.19对数据进行转换和换算操作
+nums =[1,2,3,4,5]
+s = sum(x*x for x in nums)
+
+#1.20将多个映射合并为单个映射
+a ={'x':1,'z':3}
+b ={'y':2,'z':4}
+from collections import ChainMap
+c =ChainMap(a,b)
+"""
+ChainMap()可接受多个映射然后在逻辑上使它们表现为一个单一的映射结构。
+ChainMap只是维护一个记录底层映射关系的列表。
+"""
+len(c)
+list(c.keys())
+list(c.values())
+#如果有重复的键，那么这里会采用第一个映射中所对应的值。
+#同时，修改映射的操作总是会作用在列表的的第一个映射结构上
+c['z'] = 10
+c['w'] = 40
+del c['x']
+print (a)   #{'w': 40, 'z': 10}
+
+#作为ChainMap()的替代方案，可以使用update()方法，但它是不会影响前面的
+
+a ={'x':1,'z':3}
+b ={'y':2,'z':4}
+
+merged =dict(b)
+merged.update(a)
+
+print (merged)  #{'y': 2, 'x': 1, 'z': 3}
+
+
+
+
+
+
+
+
+
+
 
