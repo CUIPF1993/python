@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>890fb60e-d2f3-490b-b004-7d69df106feb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>数据结构和算法.py</StartupFile>
+    <StartupFile>迭代器和生成器.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="数据结构和算法.py" />
+    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ReadMe.txt" />
+    <Compile Include="数据结构和算法.py" />
+    <Compile Include="迭代器和生成器.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
