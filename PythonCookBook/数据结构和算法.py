@@ -1,13 +1,12 @@
 # 讲序列分解为单独的变量
 #1.2从任意长度的可迭代对象中分解元素
 #‘*’表达式，将可迭代对象的第一个和最后一个去掉，只剩下中间的
-
 L = [1,2,3,4,5,6]
 def drop_first_last(items):
     first,*middle,last = items
     return middle
 
-print (drop_first_last(L))
+print (drop_first_last(L))      #[2, 3, 4, 5]
 
 #*式的语法在可迭代的变长元组序列时尤其有用
 recrords = [('foo',1,2),('bar','hellow'),('foo',3,4)]
@@ -31,7 +30,6 @@ for tag,*args in recrords:
 最后检查过的N行文本。
 """
 from collections import deque
-
 def search(lines,pattern,history = 5):
     previous_lines = deque(maxlen = history)
     for line in lines:
@@ -40,8 +38,6 @@ def search(lines,pattern,history = 5):
         previous_lines.append(line)
 
 # Example use on a file
-
-
 with open ("somefile.txt") as f:
     for line,previous_lines in search(f,'python',5):
         for pline in previous_lines:
@@ -53,7 +49,6 @@ with open ("somefile.txt") as f:
 deque(maxlen =x)创建了一个固定长度的队列。当有新纪录加入到队列而队列已满时
 会自动移除最老的纪录。
 """
-
 q = deque(maxlen = 3)
 q.append(1)
 q.append(2)
@@ -73,7 +68,7 @@ q.append(2)
 q.append(3)
 q.appendleft(4)
 
-print (q)
+print (q)       #deque([2, 3, 4], maxlen=3)
 
 q.pop()
 q.popleft()
@@ -88,7 +83,6 @@ heapq模块有两个函数——nlargest()和nsmallest()
 import heapq
 
 nums = [1,8,2,23,7,-4,18,23,42,37,2]
-
 print (heapq.nlargest(3,nums))
 print (heapq.nsmallest(3,nums))
 
@@ -105,6 +99,10 @@ cheap = heapq.nsmallest(3,prtfolio,key=lambda s :s['price'])
 expensive = heapq.nlargest(3,prtfolio,key=lambda s :s['price'])
 for i in  cheap:
     print (i)
+
+#{'name': 'YHOO', 'share': 45, 'price': 16.35}
+#{'name': 'FB', 'share': 200, 'price': 21.09}
+#{'name': 'HPQ', 'share': 35, 'price': 31.75}
 
 #1.5实现优先队列
 
@@ -167,7 +165,7 @@ d = defaultdict(list)
 d['a'].append(1)
 d['a'].append(2)
 d['a'].append(4)
-print (d)
+print (d)       #defaultdict(<class 'list'>, {'a': [1, 2, 4]})
 
 d = defaultdict(set)
 d['a'].add(1)
@@ -285,10 +283,10 @@ def dedupe(items , key = None):
 a = [{'x':1,'y':2},{'x':1,'y':3},{'x':1,'y':2},{'x':2,'y':4}]
 
 b = list(dedupe(a,key=lambda d:(d['x'],d['y'])))
-print (b)
+print (b)       #[{'y': 2, 'x': 1}, {'y': 3, 'x': 1}, {'y': 4, 'x': 2}]
 
 b = list(dedupe(a,key=lambda d:d['x']))
-print (b)
+print (b)       #[{'y': 2, 'x': 1}, {'y': 4, 'x': 2}]
 
 #1.11对切片命名
 
@@ -325,7 +323,7 @@ from collections import Counter
 
 word_counts = Counter(words)
 top_three = word_counts.most_common(3)
-print (top_three)
+print (top_three)       #[('look', 5), ('my', 5), ('into', 4)]
 
 """
 可以给Counter对象提供任何可哈希的对象作为输入。在底层实现中，Counter是一个
@@ -345,10 +343,10 @@ a =Counter(words)
 b = Counter(morewords)
 
 c =a+b
-print (c)
+print (c)       #Counter({'my': 6, 'look': 5, 'into': 4, 'eyes': 2, 'the': 2, 'eye': 2, 'why': 1, 'in': 1, 'you': 1, 'are': 1, 'not': 1, 'looking': 1})
 
 d = a-b
-print(d)
+print(d)        #Counter({'look': 5, 'my': 4, 'into': 4, 'the': 2, 'eyes': 2})
 
 #1.13通过公共键对字典进行排序
 #利用operator模块的itemgetter函数对字典列表进行排序
@@ -365,6 +363,12 @@ rows_by_fname = sorted(rows,key = itemgetter('fname'))
 rows_by_uis = sorted(rows,key = itemgetter('uid'))
 
 print (rows_by_fname)
+"""
+[{'fname': 'Big', 'lname': 'Jones', 'uid': 1004}, 
+{'fname': 'Brian', 'lname': 'Jones', 'uid': 1003}, 
+{'fname': 'David', 'lname': 'Beazley', 'uid': 1002},
+ {'fname': 'John', 'lname': 'Cleese', 'uid': 1001}]
+ """
 print (rows_by_uis)
 
 #itemgetter()函数还可以接受多个键
