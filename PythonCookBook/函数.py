@@ -156,5 +156,187 @@ pt = (4,3)
 points.sort(key = partial(distance,pt))
 print(points)       #[(3, 4), (1, 2), (5, 6), (6, 7), (7, 8)]
 
+#7.9用函数替代只有摸个方法的类
 
+#7.10在回调函数中携带额外的状态
 
+def apply_async(func,args,*,callback):
+    #Compute the result
+    result = func(*args)
+
+    #Invock the callBack with the result
+    callback(result)
+
+def print_result(result):
+    print('Got:',result)
+
+def add(x,y):
+    return x+y
+
+apply_async(add,(2,3),callback = print_result)
+#Got: 5
+apply_async(add,('Hello','world'),callback=print_result)
+#Got: Helloworld
+
+#一种在回调函数中携带额外信息的方法是使用绑定方法（bound-method）而不是普通方法
+
+class ResultHandler:
+    def __init__(self):
+        self.sequence = 0
+
+    #这个类保存一个内部的序列号，每当接收到一个结果时就递增这个号码
+    def handler(self,result):
+        self.sequence += 1
+        print ('[{}] Got:{}'.format(self.sequence,result))
+
+#要使用这个类，可以创建一个实例并将绑定方法handler当回调函数使用
+r =ResultHandler()
+apply_async(add,(2,3),callback = r.handler)     #[1] Got:5
+
+#作为类的替代方案，也可以使用闭包来捕获状态。示例如下：
+
+def make_handler():
+    sequence = 0
+    def handler (result):
+        nonlocal sequence
+        sequence += 1
+        print('[{}] Got:{}'.format(sequence,result))
+    return handler
+
+handler = make_handler()
+apply_async(add,(2,3),callback = handler)     #[1] Got:5
+
+#除此之外，有时候利用协程（coroutine）来完成同样任务
+def make_handler():
+    sequence =0
+    while True:
+        result = yield
+        sequence += 1
+        print('[{}] Got:{}'.format(sequence,result))
+
+handler = make_handler()
+next(handler)
+apply_async(add,(2,3),callback = handler.send)     #[1] Got:5
+
+#可以通过额外的参数在回调函数中携带状态，然后用partial（）来处理这个参数
+
+class SequenceNo:
+    def __init__(self):
+        self.sequence =0
+
+def handler(result,seq):
+    seq.sequence +=1
+    print('[{}] Got:{}'.format(seq.sequence,result))
+
+seq = SequenceNo()
+apply_async(add,(2,3),callback = partial(handler,seq =seq))     #[1] Got:5
+
+apply_async(add,(2,3),callback =lambda r:handler(r,seq))     #[2] Got:5
+"""
+基于回调函数的软件设计常常会面临使代码陷入一团乱麻的风险。部分原因是因为从代码发起初始请求开始
+到回调执行的这个过程中，回调函数常常是与这个环境相脱离的。
+"""
+
+#7.11内联函数  (这一部分不好理解）
+
+def apply_async(func,args,*,callback):
+    #Compute the result
+    result =func(*args)
+
+    #Invoke the callback with the result
+    callback(result)
+#这里涉及到一个Async类和inlined_async装饰器
+
+from queue import Queue
+from functools import wraps
+
+class Async:
+    def __init__(self, func,args):
+        self.func = func
+        self.args = args
+"""
+本节的核心就在inline_async()装饰器函数中，关键点就是对于生成器函数的所有yield语句装饰器
+都会逐条追踪，一次一个。为了做到这点，我们创建了一个队列来保存结果，初始时用None来填充。之
+后通过循环将结果从队列中取出。然后发送给生成器，这样就会产生下一次的yield，此时就会接收到
+Async的实例。
+"""
+def inlined_async(func):
+    @wraps(func)
+    def wrapper(*args):
+        f = func(*args)
+        result_queue =Queue()
+        result_queue.put(None)
+        while True:
+            result = result_queue.get()
+            try:
+                a = f.send(result)
+                apply_async(a.func,a.args,callback = result_queue.put)
+            except StopIteration:
+                break
+    return wrapper
+
+def add(x,y):
+    return x+y
+
+@inlined_async
+def test():
+    r = yield Async(add,(2,3))
+    print (r)
+    r =yield Async(add,('hello','world'))
+    print(r)
+    for n in range(10):
+        r =yield Async(add,(n,n))
+        print (r)
+    print('Goodbye')
+
+test()
+
+#5
+#helloworld
+#0
+#2
+#4
+#6
+#8
+#10
+#12
+#14
+#16
+#18
+#Goodbye
+
+#7.12访问定义在闭包内的变量
+"""
+一般来说，在闭包内层定义的变量对于外界来说完全是隔离的。但是，可以通过编写存取函数（accessor 
+function,即getter/setter方法）并将它们作为函数属性附加到闭包上来提供对内层变量的访问支持
+"""
+
+def sample():
+    n = 0
+    #Closure function
+    def func():
+         print('n=',n)
+
+    #Accessor methods for n
+    def get_n():
+        return n
+
+    def set_n(value):
+        nonlocal n
+        n =value
+
+    #Attach as function attribbutes
+    func.get_n =get_n
+    func.set_n = set_n
+    return func
+
+f = sample()
+f()     #n=0
+f.set_n(10)
+f()     #n=10
+"""
+首先，nonlocal声明使得编写函数来修改内层变量成为可能。。其次，函数属性能够将存取函数以直
+接的方式附加到闭包函数上，它们工作的像实例的方法。
+"""
+
+#让闭包模拟成类实例，将内层函数拷贝到一个实例的字典中然后将它返回。示例如下：
