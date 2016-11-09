@@ -269,8 +269,9 @@ class SubPerson(Person):
         super(SubPerson,SubPerson).name.__set__(self,value)
 
 #8.9创建一种新形式的类属性和实例属性
-#我们想创建一种新形式的实例属性，它可以拥有一些额外的功能，比如类型检查
 
+#我们想创建一种新形式的实例属性，它可以拥有一些额外的功能，比如类型检查
+#Des
 
 
 
