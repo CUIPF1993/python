@@ -271,9 +271,178 @@ class SubPerson(Person):
 #8.9创建一种新形式的类属性和实例属性
 
 #我们想创建一种新形式的实例属性，它可以拥有一些额外的功能，比如类型检查
-#Des
+#Descriptor attribute for an integer type-checked attribute
+class Integer:
+    def __init__(self,name):
+        self.name = name
 
+    def __get__(self,instance,cls):
+        if instance == None:
+            return self
+        else:
+            return instance.__dict__[self.name]
 
+    def __set__(self,instance,value):
+        if not isinstance(value,int):
+            raise TypeError('Except an int')
+        instance.__dict__[self.name] = value
+
+    def __delete(self,instance):
+        del instance.__dict__[self.name]
+
+#要使用一个描述符，我们把描述符的实例放置在类的定义中作为类变量来使用。
+class Point:
+    x = Integer('x')
+    y = Integer('y')
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y 
+#当这么做的时，所有针对描述符属性（即，这里的x,y ）访问都会被__get__()、__set__()、和__delete__()方法所捕获。
+p = Point(2,3)
+p.x         #2  Calls Point.x__get__(p,Point)
+p.y = 5         #Call Point.y.__set__(p,5)
+#p.x = 2.3       #Call Point.x.__set__(p,2.3)
+#'Except an int
+
+#8.10让属性具有惰性求值的能力
+#我们将一个只读的属性定义为property属性方法，只有在访问它时才参与计算。但是，一旦访问该属性，我们希望把计算的值
+#缓存起来，不用每次访问它时都重新计算。
+
+class lazyproperty:
+    def __init__(self,func):
+        self.func = func
+
+    def __get__(self,instance,cls):
+        if instance is None:
+            return self
+        else:
+            value = self.func(instance)
+            setattr(instance,self.func.__name__,value)
+            return value
+
+#还用上述代码
+import math
+
+class Circle:
+    def __init__(self,radius):
+        self.radius = radius
+
+    @lazyproperty
+    def area(self):
+        print('Computing area')
+        return math.pi*self.radius**2
+
+    @lazyproperty
+    def perimeter(self):
+        print('Computing perimeter')
+        return 2*math.pi*self.radius
+
+c = Circle(4.0)
+c.radius        #4.0
+
+#8.11简化数据结构的初始化过程
+#我们编写很多类，把他们当做数据结构来用。但我们厌倦了编写高度重复且样式相同的__init__函数
+#通常我们可以将初始化数据结构的步骤归纳到一个单独的__init__()函数中，并将其定义在一个公共的基类中
+
+class Structure:
+    #class variabble that specifies expected fields
+    _fields = []
+    def __init__(self,*args):
+        if len(args) != len(self._fields):
+            raise TypeError('Except {} arguments'.format(len(self._fields)))
+
+        #Set the arguments
+        for name,value in zip(self._fields,args):
+            setattr(self,name,value)
+
+class Stock(Structure):
+    _fields = ['name','shares','price']
+
+class Point(Structure):
+    _fields = ['x','y']
+
+class Circle(Structure):
+    _field = ['radius']
+    def area(self):
+        return math.pi*self.radius **2
+
+s = Stock('ACME',50,91.1)
+p = Point(2,3)
+print(p.x)      #2
+
+#我们应该提供对关键字参数的支持，这里有几种设计上的悬着。一种选择就是对关键字参数做映射，
+#这样他们就只对应于定义在_fields中的属性名。示例如下：
+class Structure:
+    _fields = []
+    def __init__(self,*args,**kwargs):
+        if len(args) > len(self._fields):
+            raise TypeError('Excepted {} arguments'.format(len(self._fields)))
+
+        #Set all of the positional arguments
+        for name,value in zip(self._fields,args):
+            setattr(self,name,value)
+
+        #Set the remaining keyword arguments
+        for name in self._fields[len(args):]:
+            setattr(self,name,kwargs.pop(name))
+
+        #Check for any remaining unknown arguments
+        if kwargs:
+            raise TypeError('Invalid argument(s) :{}'.format(','.join(kwargs)))
+
+class Stock(Structure):
+    _fields = ['name','shares','price']
+
+s1 = Stock('ACME',50,91.1)
+s2 = Stock('ACME',50 , price = 91.1)
+s3 = Stock('ACME',price = 91.1,shares = 50)
+print(s2.price)         #91.1
+print(s3.shares)        #50
+
+#另一种可能的选择是利用关键字参数来给类添加额外的属性，这些额外的属性是没有定义在_field中。示例如下
+
+class Structure:
+    #Class variable that specifies excepted fields 
+    _fields = []
+    
+    def __init__(self,*args,**kwargs):
+        if len(args) != len(self._fields):
+            raise TypeError('Expected {} arguments'.format(len(self._fields)))
+
+        #Set the arguments
+        for name,value in zip(self._fields,args):
+            setattr(self,name,value)
+
+        #Set the additional arguments (if any)
+        extra_args = kwargs.keys() - self._fields
+        for name in extra_args:
+            setattr(self,name,kwargs.pop(name))
+
+        if kwargs:
+            raise TypeError('Duplicate values for {}'.format(','.join(kways)))
+
+class Stock(Structure):
+    _fields = ['name','shares','price']
+
+s1 = Stock('ACME',50,91.1)
+s2 = Stock('ACME',50 ,91.1,date = '2016')
+print(s1.price)         #91.1
+print(s2.date)        #2016
+
+#8.12 定义一个接口或者抽象基类
+#我们想定义一个类作为接口或者抽象基类，这样可以在此之上执行类型检查并确保在子类中实现特定的方法
+#要使用一个抽象基类，可以使用abc模块。
+from abc import ABCMeta,abstractmethod
+
+class IStream(metaclass = ABCMeta):
+    @abstractmethod
+    def red(self,maxbytes = -1):
+        pass
+    @abstractmethod
+    def write(self,date):
+        pass
+
+#
 
     
 
