@@ -417,7 +417,6 @@ class Structure:
         extra_args = kwargs.keys() - self._fields
         for name in extra_args:
             setattr(self,name,kwargs.pop(name))
-
         if kwargs:
             raise TypeError('Duplicate values for {}'.format(','.join(kways)))
 
@@ -442,10 +441,134 @@ class IStream(metaclass = ABCMeta):
     def write(self,date):
         pass
 
-#
+#抽象基类的核心特征就是不能被直接实例化。抽象基类是用来给其他的类当基类使用的，
+#这些子类需要实现在基类中要求的方法。抽象基类的主要用途是强制规定所需的编程接口。
 
-    
+"""
+我们可能会认为这种形式的类型检查只有在子类化抽象基类（ABC）时才能工作，但是抽象基类也
+允许其他的类向其注册，然后实现其接口。
+"""
+import io
+#Register the built-in I/O classes as supporting our interface
+IStream.register(io.IOBase)
 
+#Open a normal file and typeee check
+f = open('somefile.txt')
+if isinstance(f,IStream):
+    print ('s')
+
+#@abstractmethod 同样可以施加到静态方法、类方法和property属性上，只要确保以合适的顺序进行即可。
+
+class A(metaclass = ABCMeta):
+    @property
+    @abstractmethod
+    def name(self):
+        pass
+
+    @name.setter
+    @abstractmethod
+    def name(self,value):
+        pass
+
+    @classmethod
+    @abstractmethod
+    def method1(cls):
+        pass
+
+    @staticmethod
+    @abstractmethod
+    def method2():
+        pass
+
+#8.13实现一种数据模型或类型系统
+
+#我们想定义跟种各样的数据结构，但是对于某些特定的属性，我们想对允许付给它们的值强制添加一些限制。
+#为了做到这一点，需要对每个属性的设定做定制化处理，因此应该使用描述符来完成
+#下面的代码使用描述符实现了一个类型系统的以及对值进行检查的框架：
+
+#Base class. Uses a descriptor to set a value
+class Descriptor:
+    def __init__(self,name = None,**opts):
+        self.name = name
+        for key ,value in opts.items():
+            setattr(self,key,value)
+
+    def __set__(self,instance,value):
+        instance.__dict__[self.name] = value
+
+#Descriptor for enforcing types
+class Typed(Descriptor):
+    expected_type = type(None)
+
+    def __set__(self,instance,value):
+        if not isinstance(value,self.expected_type):
+            raise TypeError('Except' + str(self.expected_type))
+        super().__set__(instance,value)
+
+#Descriptor for enforcing values
+class Unsigned(Descriptor):
+    def __set__(self,instance,value):
+        if value < 0 :
+            raise ValueError('Excepted >= 0')
+        super().__set__(instance,value)
+
+class MaxSized(Descriptor):
+    def __init__(self,name = None,**opts):
+        if 'size' not in opts:
+            raise TypeError('missing size options')
+        super().__init__(name,**opts)
+
+    def __set__(self,instance,value):
+        if len(value) >= self.size:
+            raise ValueError('Size must be < ' +str(self.size))
+        super().__set__(instance,value)
+
+#这些类可作为构建一个数据模型或者类型系统的基础组件。
+class Integer(Typed):
+    expected_type = int
+
+class UnsignedInteger(Integer,Unsigned):
+    pass
+
+class Float(Typed):
+    expected_type = float
+
+class UnsignedFloat(Float,Unsigned):
+    pass
+
+class String(Typed):
+    expected_type = str
+
+class SizeString(String,MaxSized):
+    pass
+
+#有了这些类型对象，现在就可以像这样定义一个类了
+
+class Stock:
+    #Specify constraints
+    name =SizeString('name',size = 8)
+    shares = UnsignedInteger('shares')
+    price = UnsignedFloat('price')
+
+    def __init__(self,name,shares,price):
+        self.name = name
+        self.shares = shares
+        self.price = price
+
+s = Stock('ACME',50,91.1)
+print(s.name )      #ACME
+#s.name = 'aaaaaaaaaa'         #raise ValueError('Size must be < ' +8)
+#s.price = 'aa'          #TypeError: Except<class 'float'>
+
+#可以运用一些技术来简化在类中设定约束的步骤。一般方法是使用类装饰器。
+
+#另外一种方法是使用元类。       P284页有具体做法
+
+#8.14实现自定义的容器
+
+#创建了一个Sequence类，且元素总是以排序后的顺序进行存储。（例子不是很清楚，但能说明大意）
+
+  
     
 
 
