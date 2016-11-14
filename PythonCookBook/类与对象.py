@@ -567,6 +567,181 @@ print(s.name )      #ACME
 #8.14实现自定义的容器
 
 #创建了一个Sequence类，且元素总是以排序后的顺序进行存储。（例子不是很清楚，但能说明大意）
+import collections
+import bisect
+
+class SortedItems(collections.Sequence):
+    def __init__(self,initial = None):
+        self._items = sorted(initial) if initial is not None else []
+
+    #Required sequence methods
+    def __getitem__(self, index):
+        return self._items[index]
+
+    def __len__(self):
+        return len(self._items)
+
+    #Method for adding an item in the right location
+    def add(self,item):
+        bisect.insort(self._items,item)
+
+items = SortedItems([3,2,1])
+print (list(items))     #[1,2,3]
+items.add(5)
+items.add(4)
+print(list(items))      #[1, 2, 3, 4, 5]                 
+
+#8.15 委托属性的访问
+#我们想在访问实例的属性时能够将其委托（delegate）到一个内部持有的对象上，这可以作为继承的替代方案。
+#简单来说，委托是一种编程模式。我们将某个特定的操作转交给（委托）另外一个不同的对象实现。
+
+class A:
+    def spam(self,x):
+        pass
+
+    def foo(self):
+        pass
+
+class B:
+    def __init__(self):
+        self._a = A()
+
+    def spam(self,x):
+        #Delegate to the internal self._a instance
+        return self._a.spam(x)
+
+    def foo(self):
+        #Delegate to the internal self._a instance
+        return self._a.spam(x)
+    def bar(self):
+        pass
+#如果机油几个方法需要委托，编写像上面那样的代码是非常简单的。但是，如果有许多方法都需要委托，
+#另一种实现方式是定义__getattr__()方法，就像下面这样：
+class A:
+    def spam(self,x):
+        pass
+
+    def foo(self):
+        pass
+
+class B:
+    def __init__(self):
+        self._a = A()
+
+    def bar(self):
+        pass
+
+    #Expose all of the methods defined on class A
+    def __getattr__(self,name):
+        return getattr(self._a,name)
+
+#__getattr__()方法能用来查找所有所有的属性。如果代码中尝试访问一个并不存在的属性时，就会调用这个方法。
+
+b =B()
+b.bar()     #Call B,bar() (exists on B)
+b.spam(42)      #Call B.__getattr__('spam') and delegates to A.spam
+
+#委托的另外一个例子就是在实现代理时。
+
+#A proxy class taht warps around another obbject,bbut exposes its public attributes
+
+class Proxy:
+    def __init__(self,obj):
+        self._obj = obj
+
+    #Delegate attribute loopup to internal obj
+    def __getattr__(self,name):
+        print('getattr: ',name)
+        return getattr(self._obj,name)
+
+    #Delegate attribute assigment
+    def __setattr__(self, name,value):
+        if name.startswith('_'):
+            super().__setattr__(name,value)
+        else:
+            print('setattr: ',name,value)
+            setattr(self._obj,name,value)
+
+    #Delegate attribte delection
+    def __delattr__(self,name):
+        if name.startswith('_'):
+            super().__delattr__(name)
+        else:
+            print('delattr: ',name)
+            delattr(self._obj,name)
+
+#要使用这个代理类，只需要简单地用它包装另外一个实例即可。
+
+class Spam:
+    def __init__(self,x):
+        self.x = x
+
+    def bar(self,y):
+        print('Spam.bar: ',self.x,y)
+
+s = Spam(2)
+p = Proxy(s)
+print(p.x)      #2
+p.bar(3)        #Spam.bar:  2 3
+
+#8.16在类中定义多个构造函数
+
+#我们正在编写一个类，但是想让用户能够以多种方式创建实例，而局限于__init__()提供的这一种。
+#要定义一个含有多个构造函数的类，应该使用类方法
+
+import time
+
+class Date:
+    #Pimary constuctor
+    def __init__(self,year,month,day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    #Alternate constructor
+    @classmethod
+    def today(cls):
+        t = time.localtime()
+        return cls(t.tm_year,t.tm_mon,t.tm_mday)
+
+a = Date(2012,12,21)
+b = Date.today()
+print(b.year)       #2016
+
+#类方法的一大主要用途就是定义其他可选的构造函数。类方法的一个关键特性就是把类作为其接受的第一个参数（clas）
+
+#8.17不通过调用init来创建实例
+
+#可以直接调用类的__new__()方法来创建一个未经初始化的实例。
+class Date:
+    #Pimary constuctor
+    def __init__(self,year,month,day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+d = Date.__new__(Date)
+
+print(d)       #<__main__.Date object at 0x033F4A30>
+#print(d.year)       #AttributeError: 'Date' object has no attribute 'year'
+#可以看到，得到的实例是未经初始化的。因此，给实例变量设定合适的初始值现在就是我们的责任。
+date = {'year':2012,'month':8,'day':29}
+for key ,value in date.items():
+    setattr(d,key,value)
+print(d.year)       #2012
+
+#当需要以非标准的方式创建实例时常常会遇到需要绕过__init__()的情况，比如反序列化数据，或者实现一个类方法将其作为备选的构造函数
+
+#8.18用 Mixin 技术来扩展类定义
+
+#某个库提供了一组基础类以及一些可选的定制方法，如果用户需要的话可以自行添加
+#现在假设我们有兴趣将各种各样的定制处理方法（例如，日志记录、类型检查等）添加到映射对象(mapping object)上。
+
+
+
+
+
+
 
   
     
