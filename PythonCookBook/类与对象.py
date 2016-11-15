@@ -65,7 +65,7 @@ print(format(d,'%A,%B,%d,%Y'))      #Friday,December,21,2012
 
 #8.3让对象支持上下文管理协议
 
-#要让对象能够兼容with语句，需要实现__enter__()和__exit__方法。比如说，考虑下面这个表示网络的类
+#要让对象能够兼容with语句，需要实现__enter__()和__exit__方法。比如，考虑下面这个表示网络的类
 from socket import socket,AF_INET,SOCK_STREAM
 
 class LazyConnection:
