@@ -737,13 +737,250 @@ print(d.year)       #2012
 #某个库提供了一组基础类以及一些可选的定制方法，如果用户需要的话可以自行添加
 #现在假设我们有兴趣将各种各样的定制处理方法（例如，日志记录、类型检查等）添加到映射对象(mapping object)上。
 
+class LoggedMappingMixin:
+    """
+    Add logging to get/set/delete operations for debugging.
+    """
+    __solts__ = ()
 
+    def __getitem__(self,key):
+        print('Getting '+str(key))
+        return super().__getitem__(key)
 
+    def __setitem__(self,key,value):
+        print('Setting {} ={!r}'.format(key,value))
+        return super().__setitem__(key,value)
 
+    def __delitem__(self,key):
+        print('Deleting '+str(key))
+        return super().__delitem__(key)
 
+class SetOnceMappingMixin:
+    """
+    Only allow a key to be set once.
+    """
+    __solt__ = ()
+    def __setitem__(self,key,value):
+        if key in self :
+            raise KeyError(str(key) + 'already set')
+        return super().__setitem__(key,value)
 
+class StringKeysMappingMixin:
+    """
+    Restrict keys to strings only
+    """
+    __solt__ = ()
+    def __setitem__(self,key,value):
+        if not isinstance(key,str):
+            raise TypeError('keys must be strings')
+        return super().__setitem__(key,value)
 
+"""
+这些类本身是无用的。实际上，如果实例化它们中的任何一个，一点用的事情都做不了（除了会产生异常之外）。
+相反，这些类存在的意义是要和其他映射型类通过多重继承的方式混合在一起使用。
+"""
+
+class LoggedDict(LoggedMappingMixin,dict):
+    pass
+
+d = LoggedDict()
+d ['x'] =23     #Setting x =23
+d['x']      #Getting x
+del d['x']      #Deleting x
+
+#Python 标准库中到处都是mixin类的身影，大部分都是为了扩展其他类的功能而创建的。
+
+#8.19实现带有状态的对象或者状态机
+#我们希望实现一个状态机，或者让对象可以在不同的状态中进行操作。但是我们不希望代码中会因此出现大量的条件判断。
+#下面这个代表网络连接的类：
+
+class Connection:
+    def __init__(self):
+        self.state = 'CLOSED'
+
+    def read(self):
+        if self.state != 'OPEN':
+            raise RuntimeError('Not open')
+        print('reading')
+
+    def write(self,date):
+        if self.state != 'OPEN':
+            raise RuntimeError('Not open')
+        print('writing')
+
+    def open(self):
+        if self.state == 'OPEN':
+            raise RuntimeError('Already open')
+        self.state = 'OPEN'
+
+    def close(self):
+        if self.state == 'CLOSED':
+            raise RuntimeError('Already closed')
+        self.state = 'CLOSED'
+
+"""
+这份代码为我们提出了几个难题。首先，由于代码中引入了许多针对状态的条件检查，代码变得复杂。
+其次，程序的性能下降了。因为普通的操作如读和写总要在处理前先检查状态。         
+"""
+
+#一个更加优雅的方式是将每种操作状态以一个单独的类来定义，然后在Connection类中使用这些状态。
+
+class Connection:
+    def __init__(self):
+        self.new_state(ClosedConnectionState)
+
+    def new_state(self,newstate):
+        self._state = newstate
+
+    #Delegate to the state class
+    def read(self):
+        return self._state.read(self)
+
+    def write(self):
+        return self._state.write(self)
+
+    def open(self):
+        return self._state.open(self)
+
+    def close(self):
+        return self._state.close(self)
+
+#Connection state base class
+class ConnectionState:
+    @staticmethod
+    def read(conn):
+        raise NotImplementedError()
+
+    @staticmethod
+    def write(conn):
+        raise NotImplementedError()
+
+    @staticmethod
+    def open(conn):
+        raise NotImplementedError()
   
-    
+    @staticmethod
+    def close(conn):
+        raise NotImplementedError()   
+
+#Implementation of different states
+class ClosedConnectionState(ConnectionState):
+    @staticmethod
+    def read(conn):
+        raise RuntimeError('Not open')
+
+    @staticmethod
+    def write(conn):
+        raise RuntimeError('Not open')
+
+    @staticmethod
+    def open(conn):
+        conn.new_state(OpenConnectionState)
+    @staticmethod
+    def close(conn):
+        raise RuntimeError('Already closed')
+
+class OpenConnectionState(ConnectionState):
+    @staticmethod
+    def read(conn):
+        print('reading')
+
+    @staticmethod
+    def write(conn):
+        print('writing')
+
+    @staticmethod
+    def open(conn):
+        raise RuntimeError('Already closed')
+    @staticmethod
+    def close(conn):
+        conn.new_state(ClosedConnectionState)
+
+c = Connection()
+print(c._state)     #raise RuntimeError('Already closed')
+#c.read()        #raise RuntimeError('Not open')
+c.open()
+print(c._state)     #<class '__main__.OpenConnectionState'>
+c.read()        #reading
+
+#8.20 调用对象上的方法，方法名字以字符串形式给出。
+
+#对于简单的情况，可以使用getattr()。
+
+import math
+
+class Point:
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y 
+
+    def __repr__(self):
+        return 'Point({!r},{!r})'.format(self.x,self.y)
+
+    def distance(self,x,y):
+        return math.hypot(self.x -x ,self.y - y)
+
+p = Point(3,4)
+d = getattr(p,'distance')(0,0)
+print(d)        #5.0
+
+#另一种方法是使用operator.methodcaller()
+import operator
+d = operator.methodcaller('distance',0,0)(p)
+print(d)        #5.0
+
+#如果想通过名称来查询方法并提供同样的参数反复调用该方法，那operator.methodcaller是很有用的。
+
+points = [Point(1,2),
+          Point(3,0),
+          Point(2,2),
+          Point(10,2),
+          Point(5,2),]
+points.sort(key = operator.methodcaller('distance',0,0))
+print (points)      #Point(1,2), Point(2,2), Point(3,0), Point(5,2), Point(10,2)]
+
+#8.21 实现访问者模式
+#我们需要编写代码来处理或者遍历一个由许多不同的类型的对象组成的复杂数据结构，每种类型的对象处理的方式都不同
+#假设我们正在编写一个表示数学运算的程序。
+
+class Node:
+    pass
+
+class UnaryOperator(Node):
+    def __init__(self,operand):
+        self.operand = operand
+
+class BinaryOperator(Node):
+    def __init__(self,left,right):
+        self.left = left
+        self.right = right
+
+class Add(BinaryOperator):
+    pass
+
+class Sub(BinaryOperator):
+    pass
+
+class Mul(BinaryOperator):
+    pass
+
+class Div(BinaryOperator):
+    pass
+
+class Negate(BinaryOperator):
+    pass
+
+class Numer(Node):
+    def __init__(self,value):
+        self.value = value
+
+#之后，我们可以用这些类来构建嵌套式的数据结构。
+#Representation of 1+2*(3-4)/5
+t1 = Sub(Numer(3),Numer(4))
+t2 = Mul(Numer(2),t1)
+t3 = Div(t2,Numer(5))
+t4 = Add(Numer(1),3)
+
+#为了能让处理过程变得通用，一种常见的解决方案就是实现所谓的“访问者模式”。
 
 
