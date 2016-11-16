@@ -970,17 +970,55 @@ class Div(BinaryOperator):
 class Negate(BinaryOperator):
     pass
 
-class Numer(Node):
+class Number(Node):
     def __init__(self,value):
         self.value = value
 
 #之后，我们可以用这些类来构建嵌套式的数据结构。
 #Representation of 1+2*(3-4)/5
-t1 = Sub(Numer(3),Numer(4))
-t2 = Mul(Numer(2),t1)
-t3 = Div(t2,Numer(5))
-t4 = Add(Numer(1),3)
+t1 = Sub(Number(3),Number(4))
+t2 = Mul(Number(2),t1)
+t3 = Div(t2,Number(5))
+t4 = Add(Number(1),t3)
 
-#为了能让处理过程变得通用，一种常见的解决方案就是实现所谓的“访问者模式”
+#为了能让处理过程变得通用，一种常见的解决方案就是实现所谓的“访问者模式”。
+
+class NodeVistor:
+    def visit(self,node):
+        methname = 'visit_' + type(node).__name__
+        meth = getattr(self,methname,None)
+        if meth is None:
+            meth = self.generic_visit
+        return meth(node)
+
+    def generic_visit(self,node):
+        raise RuntimeError('No {} method'.format('visit_' +type(node).__name__))
+
+#要使用这个类，程序员从该类中继承并实现各种visit_Name()方法，这里的Name应该由节点的类型来替换。
+
+class Evaluator(NodeVistor):
+    def visit_Number(self,node):
+        return node.value
+
+    def visit_Add(self,node):
+        return self.visit(node.left) + self.visit(node.right)
+
+    def visit_Sub(self,node):
+        return self.visit(node.left) - self.visit(node.right)
+
+    def visit_Mul(self,node):
+        return self.visit(node.left) * self.visit(node.right)
+
+    def visit_Div(self,node):
+        return self.visit(node.left) / self.visit(node.right)
+
+    def visit_Negate(self,node):
+        return -node.operand
+
+e = Evaluator()
+a = e.visit(t4)
+print (a)       #0.6
+
+#8.22 实现非递归的访问者模式
 
 
