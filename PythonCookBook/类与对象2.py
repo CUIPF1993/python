@@ -227,7 +227,7 @@ points = [Point(1,2),
 points.sort(key = operator.methodcaller('distance',0,0))
 print (points)      #Point(1,2), Point(2,2), Point(3,0), Point(5,2), Point(10,2)]
 
-#8.21 实现访问者模式
+#8.21 实现访问者模式   11.16
 #我们需要编写代码来处理或者遍历一个由许多不同的类型的对象组成的复杂数据结构，每种类型的对象处理的方式都不同
 #假设我们正在编写一个表示数学运算的程序。
 
@@ -438,5 +438,47 @@ print(a)
 #我们的程序中创建了环状的数据结构（例如树、图、观察者模式等），但是在内存管理上却遇到了困难。
 #环状数据结构的一个简单例子就是树，这里的父节点指向它的孩子，而孩子节点又会指向它们的父节点。
 #对于这样的代码，我们应该考虑让其中一条连接使用weakref库中提供的弱引用机制。
+
+import weakref
+
+class Node:
+    def __init__(self,value):
+        self.value = value
+        self._parent = None
+        self.children = [] 
+
+    def __repr__(self):
+        return 'Node ({!r:})'.format(self.value)
+
+    #property that manages the parent as a weak-reference
+    @property
+    def parent(self):
+        return self._parent if self._parent is None else self._parent()
+
+    @parent.setter
+    def parent(self,node):
+        self._parent = weakref.ref(node)
+
+    def add_child(self,child):
+        self.children.append(child)
+        child.parent = self
+
+root = Node('parent')
+c1 = Node('child')
+root.add_child(c1)
+print(c1.parent)        #Node ('parent')
+print(c1)       #Node ('child')
+print(root.parent)      #None
+del root
+print(c1.parent)        #None
+
+#8.24让类支持比较操作
+#要支持 >= 操作符，可以在类中定义一个 __ge__()方法。但是如果实现每种可能的比较操作，会变得很复杂
+#functools.total_ordering装饰器可以简化这个过程。使用它，可以用它装饰一个类，然后定义__eq__()以及
+#另外一个比较方法(__It__、__le__、__gt__或者__ge__)。那么装饰器就会自动为我们实现其他的比较方法。
+
+#作为示例、
+from functools import total_ordering
+
 
 

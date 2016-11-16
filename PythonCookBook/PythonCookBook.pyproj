@@ -25,11 +25,20 @@
     <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="元编程.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="函数.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="字符串和文本.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="数据结构和算法.py" />
-    <Compile Include="类与对象.py">
+    <Compile Include="文件和IO.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="类与对象1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="类与对象2.py">
