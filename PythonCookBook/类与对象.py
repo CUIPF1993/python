@@ -1020,5 +1020,131 @@ a = e.visit(t4)
 print (a)       #0.6
 
 #8.22 实现非递归的访问者模式
+#我们使用访问者模式来遍历一个深度嵌套的树结构，但由于超过Python的递归限制而易崩溃。
+#巧妙利用生成器有时候可用来消除树的遍历或查找算法中的递归。下面通过堆栈和生成器来驱动计算，完全不使用递归
+
+import types
+
+class Node:
+    pass
+
+class UnaryOperator(Node):
+    def __init__(self,operand):
+        self.operand = operand
+
+class BinaryOperator(Node):
+    def __init__(self,left,right):
+        self.left = left
+        self.right = right
+
+class Add(BinaryOperator):
+    pass
+
+class Sub(BinaryOperator):
+    pass
+
+class Mul(BinaryOperator):
+    pass
+
+class Div(BinaryOperator):
+    pass
+
+class Negate(BinaryOperator):
+    pass
+
+class Number(Node):
+    def __init__(self,value):
+        self.value = value
+
+#这一部分是重点
+class NodeVisitor:
+    def visit(self,node):
+        stack = [node]
+        last_result = None
+        while stack:
+            try:
+                last = stack[-1]
+                if isinstance(last,types.GeneratorType):
+                    stack.append(last.send(last_result))
+                    last_result = None
+                elif isinstance(last,Node):
+                    stack.append(self._visit(stack.pop()))
+                else:
+                    last_result = stack.pop()
+
+            except StopIteration:
+                stack.pop()
+        return last_result
+
+    def _visit(self,node):
+        methname = 'visit_' + type(node).__name__
+        meth = getattr(self,methname,None)
+        if meth is None:
+            meth = self.generic_visit
+        return meth(node)
+    
+    def generic_visit(self,node):
+        raise RuntimeError('No {} method'.format('visit_' +type(node).__name__))
 
 
+class Evaluator(NodeVisitor):
+    def visit_Number(self,node):
+        return node.value
+
+    def visit_Add(self,node):
+        return self.visit(node.left) + self.visit(node.right)
+
+    def visit_Sub(self,node):
+        return self.visit(node.left) - self.visit(node.right)
+
+    def visit_Mul(self,node):
+        return self.visit(node.left) * self.visit(node.right)
+
+    def visit_Div(self,node):
+        return self.visit(node.left) / self.visit(node.right)
+
+    def visit_Negate(self,node):
+        return -node.operand
+
+#之后，我们可以用这些类来构建嵌套式的数据结构。
+#Representation of 1+2*(3-4)/5
+t1 = Sub(Number(3),Number(4))
+t2 = Mul(Number(2),t1)
+t3 = Div(t2,Number(5))
+t4 = Add(Number(1),t3)
+
+e = Evaluator()
+a = e.visit(t4)
+print (a)       #0.6
+
+#上述代码处理简单的表达式是没有问题，但是嵌套太深的话程序会崩溃。现在我们需要把Evaluator改一下
+class Evaluator(NodeVisitor):
+    def visit_Number(self,node):
+        return node.value
+
+    def visit_Add(self,node):
+        yield (yield node.left) + (yield node.right)
+
+    def visit_Sub(self,node):
+        yield (yield node.left) - (yield node.right)
+
+    def visit_Mul(self,node):
+        yield (yield node.left) * (yield node.right)
+
+    def visit_Div(self,node):
+        yield (yield node.left) / (yield node.right)
+
+    def visit_Negate(self,node):
+        yield -(yield node.operand)
+
+#现在再次尝试
+a = Number(0)
+for n in range(1,1000):
+    a =Add(a,Number(n))
+
+e = Evaluator()
+a = e.visit(a)
+print(a)
+
+#8.23 在环状数据结构中管理内存
+#我们的程序中创建了环状的数据结构（例如树、图、观察者模式等），但是在内存管理上却遇到了困难。
