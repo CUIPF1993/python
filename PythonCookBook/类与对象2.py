@@ -479,6 +479,91 @@ print(c1.parent)        #None
 
 #作为示例、
 from functools import total_ordering
+class Room:
+    def __init__(self,name,length,width):
+        self.name = name 
+        self.length = length
+        self.width = width
+        self.square_feet = self.length*self.width
+
+@total_ordering
+class House:
+    def __init__(self,name,style):
+        self.name = name 
+        self.style =style
+        self.rooms = list()
+
+    @property
+    def living_space_footage(self):
+        return sum(r.square_feet for r in self.rooms)
+
+    def add_room(self,room):
+        self.rooms.append(room)
+
+    def __str__(self):
+        return'{}:{} square foot {}'.format(self.name,self.living_space_footage,self.style)
+
+    def __eq__(self,other):
+        return self.living_space_footage == other.living_space_footage
+
+    def __lt__(self,other):
+        return self.living_space_footage < other.living_space_footage
+
+#这里，House类已经用@total_ordering来进行装饰。我们定义了__eq__()和__lt__()来根据房子的总面积对房子进行比较
+#Build a few house,and rooms to them
+h1 = House('h1','Cap')
+h1.add_room(Room('Master Bedroom',14 ,12))
+h1.add_room(Room('Living Room',18 ,20))
+h1.add_room(Room('Kithen',12 ,16))
+h1.add_room(Room('Office',12 ,12))
+
+h2 = House('h2','Cap')
+h2.add_room(Room('Master Bedroom',14 ,12))
+h2.add_room(Room('Living Room',28 ,20))
+h2.add_room(Room('Kithen',14 ,16))
+h2.add_room(Room('Office',12 ,12))
+
+print(h1<h2)        #True
+
+#8.25创建缓存实例
+#当创建类实例时我们想返回一个缓存引用，让其指向上一个用同样参数（如果有的话）创建出的类实例。
+import logging
+a = logging.getLogger('foo')
+b = logging.getLogger('bar')
+
+a is b      #False
+c = logging.getLogger('foo')
+a is c      #True
+
+#要实现这一行为，应该使用一个与类本身相分离的工厂函数。
+#The class in question
+class Spam:
+    def __init__(self,name):
+        self.name = name
+
+#Caching support
+import weakref
+_spam_cache = weakref.WeakValueDictionary()
+
+def get_spam(name):
+    if name not in _spam_cache:
+        s = Spam(name)
+        _spam_cache[name] = s
+    else:
+        s = _spam_cache[name]
+    return s 
+
+a = get_spam('foo')
+b = get_spam('bar')
+
+print (a is b)      #False
+
+c = a = get_spam('foo')
+print (a is c)      #True
+
+
+
+
 
 
 

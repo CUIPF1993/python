@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>890fb60e-d2f3-490b-b004-7d69df106feb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>类与对象2.py</StartupFile>
+    <StartupFile>元编程.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
