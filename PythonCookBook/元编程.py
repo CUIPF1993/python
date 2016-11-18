@@ -80,7 +80,38 @@ orig_add(3,4)
 #假设我们想编写一个为函数添加日志功能的装饰器，但是又允许用户指定日志的等级以及一些其他的细节作为参数。
 
 from functools import wraps
+import logging
 
 def logged(level , name = None,message = None):
     '''
+    Add logging to a function. level is the logging level,name is the logger
+    name,and message id the log message .If name and message aren't specified ,
+    they default to function's module and name.
     '''
+    def decorate(func):
+        logname = name if name else func.__module__
+        log = logging.getLogger(logname)
+        logmsg =message if message else func.__name__
+        
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            log.log(level,logmsg) 
+            return func(*args,**kwargs)
+        return wrapper
+    return decorate
+
+#Example
+@logged(logging.DEBUG)
+def add(x,y):
+    return x+y
+add(2,3)
+
+#9.5 定义一个属性可由用户修改的装饰器
+
+#我们想编写一个装饰器来包装函数，但是可以让用户调整装饰器的属性，这样在运行时能够控制装饰器的行为。
+#为解决上面的问题，引入了访问器函数(accessor funvtion),通过使用nonlocal关键字声明变量来修改
+#装饰器内部的属性，之后把访问器函数作为函数属性附加到函数上。
+
+from functools import wraps,partial
+import logging
+
