@@ -115,3 +115,210 @@ add(2,3)
 from functools import wraps,partial
 import logging
 
+#Utility decrator to attch a function as anattribute of obj
+def attach_wrapper(obj,func = None):
+    if func == None:
+        return partial(attach_wrapper,obj)
+    setattr(obj,func.__name__,func)
+    return func
+
+def logged(level,name = None,message = None):
+    '''
+    Add logging to a function. level is the logging level,name is the logger
+    name,and message id the log message .If name and message aren't specified ,
+    they default to function's module and name.
+    '''
+    def decorate(func):
+        logname = name if name else func.__module__
+        log = logging.getLogger(logname)
+        logmsg =message if message else func.__name__
+        
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            log.log(level,logmsg) 
+            return func(*args,**kwargs)
+
+        #Attach setter functions
+        @attach_wrapper(wrapper)
+        def set_level(newlevel):
+            nonlocal level
+            level = newlevel
+
+        @attach_wrapper(wrapper)
+        def set_message(newmsg):
+            nonlocal logmsg
+            logmsg = newmsg
+
+        return wrapper
+    return decorate
+
+#Example
+@logged(logging.DEBUG)
+def add(x,y):
+    return x+y
+
+@logged(logging.CRITICAL,'example')
+def spam():
+    print('Spam')
+
+import logging
+logging.basicConfig(level = logging.DEBUG)
+add(2,3)        #DEBUG:__main__:add
+
+add.set_message('Add called')  
+add(2,3)        #DEBUG:__main__:Add called
+
+#9.6定义一个能够接受可选参数的装饰器
+"""
+我们想编写一个单独的装饰器，使其既可以像@decorator 这样不带参数使用，也可以像@decorator(x,y,z)
+这样接受可选参数。但是由于简单装饰器和可选参数的装饰器之间存在不同的协调约定。
+"""    
+from functools import wraps,partial
+import logging
+
+def logged(func =None,*,level = logging.DEBUG,name = None,message = None):
+    if func == None:
+        return partial(logged,level = level,name = name , message = message)
+
+    logname = name if name else func.__module__
+    log = logging.getLogger(logname)
+    logmsg =message if message else func.__name__
+        
+    @wraps(func)
+    def wrapper(*args,**kwargs):
+        log.log(level,logmsg) 
+        return func(*args,**kwargs)
+    return wrapper
+
+#Example
+@logged()
+def add(x,y):
+    return x+y
+
+@logged(level = logging.CRITICAL,name = 'example')
+def spam():
+    print('Spam')
+
+#9.7利用装饰器对函数参数强制执行类型检查
+
+from inspect import signature
+from functools import wraps
+
+def typeassert(*ty_args,**ty_kwargs):
+    def decorate(func):
+        #If in optimized mode ,disable type checking
+        if not __debug__:
+            return func
+        
+        #Map function argument names to suppied types
+        sig = signature(func)
+        bound_types = sig.bind_partial(*ty_args,**ty_kwargs).arguments
+        
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            bound_values = sig.bind(*args,**kwargs)
+            
+            #Enforce type asserions across supplied arguments
+            for name,value in bound_values.arguments.items():
+                if name in bound_types:
+                    if not isinstance(value,bound_types[name]):
+                        raise TypeError('Argument {} must be {}'.format(name,bound_types[name]))
+
+            return func(*args,**kwargs)
+        return wrapper
+    return decorate
+
+@typeassert(int ,z = int)
+def spam(x,y,z =42):
+    print(x,y,z)
+    
+spam(1,2,3)     #1,2,3
+spam(1,'hellow',3)      #1 hellow 3
+
+#这个装饰器相当灵活，既允许指定函数参数的所有的类型，也可以只指定一部分子集，
+#此外，类型既可以通过位置参数来指定，也可以通过关键参数来指定。
+
+#9.8在类中定义装饰器
+#我们需要理清装饰器是以实例方法还是以类方法的形式应用
+
+from functools import wraps
+
+class A:
+    #Decorator as an instance metmod
+    def decorator1(self,func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            print('Decoator 1')
+            return func(*args,**kwargs)
+        return wrapper
+
+    #Decorator as a class method
+    @classmethod
+    def decorator2(cls,func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            print('Decoator 2')
+            return func(*args,**kwargs)
+        return wrapper
+
+#As an instance method
+a =A()
+@a.decorator1
+def spam():
+    pass
+
+#As a class method
+@a.decorator2
+def grok():
+    pass
+
+spam()      #Decoator 1
+grok()      #Decoator 2
+
+#9.9把装饰器定义成类。
+#我们需要装饰器既能在类中工作，又能在类外部使用
+#要把装饰器定义成类实例，需要确保在类中实现__call__()和__get__()方法
+import types
+from functools import wraps
+
+class Profiled:
+    def __init__(self,func):
+        wraps(func)(self)
+        self.ncalls = 0 
+
+    def __call__(self,*args,**kwargs):
+        self.ncalls += 1
+        return self.__wrapped__(*args,**kwargs)
+
+    def __get__(self,instance,cls):
+        if instance is None:
+            return self
+        else:
+            return types.MethodType(self,instance)
+
+#要使用这个类，可以像一个普通的装饰器一样，要么在类中要么在类外部使用
+@Profiled
+def add(x,y):
+    return x+y
+
+class Spam:
+    @Profiled
+    def bar(self,x):
+        print(self,x)
+
+add(2,3)
+add(3,4)
+print(add.ncalls)       #2
+s = Spam()
+s.bar(3)        #<__main__.Spam object at 0x030E3F30> 3
+
+#9.10把装饰器作用在类和静态方法上
+#将装饰器作用在类和静态方法上是简单而直接的，但是要保证装饰器在应用的时候需要放在@classmethod和@staticmethod之前
+
+import time
+from functools import wraps
+
+
+
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
