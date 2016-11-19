@@ -547,22 +547,5 @@ s = Stock('Good',100,23.33)
 由于返回类型OrderDIct实例而不是普通字典，因此类中各个属性间的顺序就是可以方便地得到维护。
 """
 
-#9.15定义一个接受可选参数的元类。
-#我们想定义一个元类，使得在定义类的时候提供可选的参数。这样的话在创建类型的时候可以对处理过程进行控制或配置
-
-#在定义类的时候，Python允许我们在class 语句中通过使用metaclass关键字参数来指定元类。
-
-from abc import ABCMeta
-from abc import abstractmethod
-
-class Istream(metaclass = ABCMeta):
-    @abstractmethod
-    def read(self,maxsize = None):
-        pass
-
-    @abstractmethod
-    def write(self,data):
-        pass
-
 
 
