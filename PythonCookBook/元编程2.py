@@ -152,7 +152,84 @@ class B(A):
         pass
 
 #9.18通过编程的方式来定义类
-#我们
+#我们可以通过使用函数types.new_class()来实例化新的类对象。所以要提供类的名称、父类名组成的元组、关键字参数以及
+#一个用来产生类字典(class dictionary)的回调，类字典中包含着类成员。
+#stock.py
+#Example of marking a class manually from parts
+
+#Methods
+def __init__(self,name,shares,price):
+    self.name = name 
+    self.shares = shares
+    self.price = price
+
+def cost(self):
+    return self.shares * self.price
+
+cls_dict = {'__init__':__init__,
+            'cost':cost,}
+
+#Make class
+import types
+
+Stock = types.new_class('Stock',(),{},lambda ns: ns.update(cls_dict))
+Stock.__module__ = __name__
+
+#这么做会产生一个普通的类对象，和期望的一样
+s = Stock('ACME',50,90.1)
+print(s)        #<__main__.Stock object at 0x022E4B90>
+print(s.cost())     #4505.0
+
+#下面和命名元组相似
+
+#9.19在定义的时候初始化类成员
+#我们想在定义类的时候对部分成员进行初始化，而不是在创建类实例的时候完成。
+#在定义类的时候执行初始化或者配置操作是元类的经典用途。从本质上说，元类是在定义类的时候触发执行的，此时可以执行额外的步骤。
+
+#下面的示例采用这种思想创建了一个类似collections模块中命名的元组类：
+import operator
+
+class StructTupleMeta(type):
+    def __init__(cls,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        for n ,name in enumerate(cls._fields):
+            setattr(cls,name,property(operator.itemgetter(n)))
+
+class StructTuple(tuple,metaclass = StructTupleMeta):
+    _fields = []
+    def __new__(cls,*args):
+        if len(args) != len(cls._fields):
+            raise ValueError('{} arguments required '.format(len(cls._fields)))
+        return super().__new__(cls,args)
+
+class Stock(StructTuple):
+    _fields = ['name','shares','price']
+
+s = Stock('BOB',30,100)
+print (s.shares)        #30
+
+#9.20通过函数注解来实现方法重载
+#本节的思想基于一个简单事实——即，Python允许对参数进行注解
+
+#下面的解决方案正是应对于此，我们使用了元类及描述符来实现：
+
+import inspect
+import types
+
+class MultMethod:
+    '''
+    Represent a single multimethod.
+    '''
+    def __init__(self,name):
+        self._methods = {}
+        self.__name__ = name 
+
+    def register(self,meth):
+        '''
+        Register a new method as  a multimethod
+        '''
+        sig = inspect.signature(meth)
+
 
 
 
