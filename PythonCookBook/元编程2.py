@@ -208,7 +208,7 @@ class Stock(StructTuple):
 s = Stock('BOB',30,100)
 print (s.shares)        #30
 
-#9.20通过函数注解来实现方法重载
+#9.20通过函数注解来实现方法重载  先空过去不看
 #本节的思想基于一个简单事实——即，Python允许对参数进行注解
 
 #下面的解决方案正是应对于此，我们使用了元类及描述符来实现：
@@ -230,12 +230,156 @@ class MultMethod:
         '''
         sig = inspect.signature(meth)
 
+        #Building a type signature from the method's annotations
+        types = []
+        for name,param in sig.parameters.items():
+            if name == 'self':
+                continue
+            if param.annotation is inspect.Parameter.empty:
+                raise TypeError('Argument {} must be annotated with a type'.format(name))
+            if not isinstance(param.annotation ,type):
+                raise TypeError('Argument {} annotation must be a type'.format(name))
 
+            if param.default is not inspect.Parameter.empty:
+                self._methods[tuple(types)] = meth
 
+            types.append(param.annotation)
+        self._methods[tuple(types)] = meth
 
+    def __call__(self,*args):
+        '''
+        Call a method based on type signature of the arguments
+        '''
+        types = tuple(type(args) for arg in args[1:])
+        meth = self._methods.get(types,None)
+        if meth:
+            return meth(*args)
+        else:
+            raise TypeError('No mathing method for types {}'.format(types))
 
+    def __get__(self,instance,cls):
+        '''
+        Descriptor method needed to make calls work in a class
+        '''
+        if instance is not None:
+            return types.MethodType(self,instance)
+        else :
+            return self
 
+class MultiDict(dict):
+    '''
+    Special dictionary to multmethods in a metaclass
+    '''
+    def __setitem__(self, key,value):
+        if key in self:
+            #If key already exist,it must bbe a multimethod or callable
+            current_value = self[key]
+            if isinstance(current_value,MultMethod):
+                current_value.register(value)
+            else:
+                mvalue = MultMethod(key)
+                mvalue.register(current_value)
+                mvalue.register(value)
+                super().__setitem__(key,mvalue)
+        else:
+            super().__setitem__(key,value)
 
+class MultipleMeta(type):
+    '''
+    Metaclass that allows multiple dispatch of methods
+    '''
+    def __new__(cls,clsname,bases,clsdict):
+        return type.__new__(cls,clsname,bases,dict(clsdict))
 
+    @classmethod
+    def __prepare__(cls,clsname,baese):
+        return MultiDict()
 
+class Spam(metaclass = MultipleMeta):
+    def bar(self,x:int,y:int):
+        print('Bar 1:',x,y)
+
+    def bar(self,s:str,n:int =0):
+        print('Bar 2:',s,n)
+
+#Eample :overloaded __init__
+s = Spam()
+#s.bar(2,3)  有误
+
+#9.21 避免出现重复的属性方法
+#我们正在编写一个类，而我们不得不重复定义一些执行相同任务的属性方法，比如说做类型检查。
+#考虑下面这个简单的类，这里的属性都用property方法进行了包装：
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age 
+        
+    @property
+    def name (self):
+        return name
+    
+    @name.setter
+    def name(self,value):
+        if not isinstance(value,str):
+            raise TypeError('name must be a string')
+        self.name = value
+        
+    @property
+    def age (self):
+        return self.age
+    
+    @age.setter
+    def age(self,value):
+        if not isinstance(value,int):
+            raise TypeError('age must be an int')        
+        self.age =value 
+
+#我们编写的很多代码仅仅只是强制对属性做类型断言，这时，我们可以通过创建一个函数，让它为我们定义这个属性并返回给我们
+
+def typed_property(name,expected_type):
+    storage_name = '_'+name
+
+    @property
+    def prop(self):
+        return getattr(self,storage_name)
+
+    @prop.setter
+    def prop(self,value):
+        if not isinstance(value,expected_type):
+            raise TypeError('{} must be a {}'.format(name,expected_type))
+        setattr(self,storage_name,value)
+    return prop
+
+#Example
+class Person:
+    name = typed_property('name',str)
+    age = typed_property('age',int)
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+
+# 9.22以简单的方式定义上下文管理器
+#我们想实现新形式的上下文管理器，然后在with语句中使用
+#编写一个新的上下文管理器，其中最直接的一种方式就是使用contextlib模块中的@contextmanager装饰器
+#在下面实例中，我们用上下文管理器来计时代码块的执行时间
+
+import time
+from contextlib import contextmanager
+
+@contextmanager
+def timethis(label):
+    start = time.time()
+    try:
+        yield
+    finally:
+        end = time.time()
+        print('{}:{}'.format(label,end-start))
+
+#Exapmle
+with timethis('conting'):
+     n = 10000
+     while n > 0:
+         n -=1
+#conting:0.0156252384185791
 
