@@ -382,4 +382,89 @@ with timethis('conting'):
      while n > 0:
          n -=1
 #conting:0.0156252384185791
+"""
+在timethis()函数中，所有位于yield之前的代码回作为上下文管理器的__enter__()方法来执行。
+而所有位于yield 之后的代码只作为__exit__()方法执行。如果有异常，则会在yield 语句中抛出。
+"""
+#一般来说，要编写一个上下文管理器，需要定义一个带有__enter__()和__exit__()方法的函数
 
+#9.23 执行带有局部副作用的代码
+#我们正在使用exec()再调用方的作用域下执行一段代码， 但是执行结束后得到的结果似乎在当前作用域下是不可见的。
+
+a = 13
+exec('b = a +1')
+print(b)        #14
+
+#当在函数中执行时，就会出现问题。解决这类问题，需要使用locals()函数在调用exec()志强获取保存了局部变量的字典
+#紧接着，就可以从本地字典中提取修改过的值
+def test():
+    a = 13
+    loc = locals()
+    exec('b = a +1')
+    d = loc['b']
+    print(d)
+
+test()      #14
+
+#9.24解析并分析python 源代码
+x = 42 
+eval ('2+3*4+x')        #56
+exec('for i in range(10):print(i)')
+#0
+#1
+#2
+#3
+#4
+#5
+#6
+#7
+#8
+#9
+
+#我们可以使用ast模块将Python源代码变异为一个抽象的语法树（AST），这样就可以分析源代码了
+import ast
+ex = ast.parse('2+3*4+x',mode = 'eval')
+print(ex)       #<_ast.Expression object at 0x01DFAB30>
+
+print (ast.dump(ex))
+#Expression(body=BinOp(left=BinOp(left=Num(n=2), op=Add(), right=BinOp(left=Num(n=3),
+#op=Mult(), right=Num(n=4))), op=Add(), right=Name(id='x', ctx=Load())))
+
+#对语法树的分析，需要读者自己做一些研究，但总的老说，语法树是由一些ＡＳＴ节点组成。
+
+#9.25将Python源码分解为字节码
+#我们想将Python 源代码分解为解释器所使用的的底层字节码，以此了解代码在底层的详细细节。
+#dis模块可以用来将任何Python函数分解为字节码序列
+def countdown(n):
+    while n >0:
+        print('T-minus',n)
+        n -= 1
+    print('Blastoff!')
+
+import dis
+print (dis.dis(countdown))
+#439           0 SETUP_LOOP              39 (to 42)
+#        >>    3 LOAD_FAST                0 (n)
+#              6 LOAD_CONST               1 (0)
+#              9 COMPARE_OP               4 (>)
+#             12 POP_JUMP_IF_FALSE       41
+
+#440          15 LOAD_GLOBAL              0 (print)
+#             18 LOAD_CONST               2 ('T-minus')
+#             21 LOAD_FAST                0 (n)
+#             24 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
+#             27 POP_TOP
+
+#441          28 LOAD_FAST                0 (n)
+#             31 LOAD_CONST               3 (1)
+#             34 INPLACE_SUBTRACT
+#             35 STORE_FAST               0 (n)
+#             38 JUMP_ABSOLUTE            3
+#        >>   41 POP_BLOCK
+
+#442     >>   42 LOAD_GLOBAL              0 (print)
+#             45 LOAD_CONST               4 ('Blastoff!')
+#             48 CALL_FUNCTION            1 (1 positional, 0 keyword pair)
+#             51 POP_TOP
+#             52 LOAD_CONST               0 (None)
+#             55 RETURN_VALUE
