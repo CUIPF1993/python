@@ -101,3 +101,73 @@ import re
 a = re.sub(r'(\d+)/(\d+)/(\d+)',r'\3-\1-\2',text)
 print(a)
 #Today is 2012-11-27. PyCon starts 2013-3-13.
+#sub()函数的第一个参数是匹配模式，第二个参数是要替换上的模式。类似“\3”这样的反斜线加数字的符号代表着模式中捕获组的数量。
+
+#2.6以不区分大小写的方式对文本做查找和替换
+
+#要进行不区分大小写的文本操作，我们需要使用re模块并对各种操作都要加上re.IGNORECASE标记。
+text = 'UPPER PYTHON,lower python ,Mixed Python'
+
+a = re.findall('python',text,flags = re.IGNORECASE)
+print(a)
+#['PYTHON', 'python', 'Python']
+a = re.sub('python','snake',text,flags = re.IGNORECASE)
+print(a)
+#UPPER snake,lower snake ,Mixed snake
+
+#上面这个例子揭示出了一种局限，那就是带替换的文本与匹配的文本大小写并不吻合。
+#如果要修正这个问题，需要用到一个支撑函数(support function),示例如下：
+
+def matchcase(word):
+    def replace(m):
+        text = m.group()
+        if text.isupper():
+            return word.upper()
+        elif text.islower():
+            return word.lower()
+        elif text[0].isupper():
+            return word.capitalize()
+        else:
+            return word
+    return replace
+
+a = re.sub('python',matchcase('snake'),text,flags = re.IGNORECASE)
+print(a)
+#UPPER SNAKE,lower snake ,Mixed Snake
+
+#2.7定义实现最短匹配的正则表达式
+
+# *操作符在正则表达式中采取的时贪心策略，所以匹配过程是基于找出最长的可能匹配来进行的。要实现最短匹配，只要在模式中的*操作符后加上?修饰符就可以
+text = 'Computre says "no." Phone says "yes"'
+str_pat = re.compile(r'\"(.*?)\"')
+a = str_pat.findall(text)
+print(a)        #['no.', 'yes']
+
+str_pat = re.compile(r'\"(.*)\"')
+a = str_pat.findall(text)
+print(a)        #['no." Phone says "yes']
+
+#2.8编写多行模式的正则表达式
+#我们打算用正则表达式对一段文本块做匹配，但是希望在进行匹配时能够跨越多行。
+comment = re.compile(r'/\*(.*?)\*/')
+text1 = '/*this is a comment */'
+text2 = '/*this is a \n multiline comment */'
+a = comment.findall(text1)
+print(a)        #['this is a comment ']
+a = comment.findall(text2)
+print(a)        #[]
+
+#句点(.)可以匹配任意字符，但是不能匹配换行符。
+comment = re.compile(r'/\*((?:.|\n)*?)\*/')
+a = comment.findall(text2)
+print(a)        #['this is a \n multiline comment ']
+#在这个模式中，(?:.|\n)指定了一个非捕获组（即，这个组只做匹配但不捕获结果，也不会分配组号）。
+
+#2.9将Unicode文本统一表示为规范形式。
+#在Unicode 中，有些特定的字符可以表示成多种合法的代码点序列。
+
+
+
+
+
+
