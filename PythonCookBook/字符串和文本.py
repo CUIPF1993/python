@@ -168,6 +168,59 @@ print(a)        #['this is a \n multiline comment ']
 
 
 
+#2.11 从字符串中去掉不需要的字符
+#strip()方法可以用来从字符串的开始和结尾除去字符。lstrip()和rstrip()可以分别从左或者右侧开始执行除去字符，
+s = '  hello world \n'
+s = s.strip()
+print (s)       #hello world
+
+t = '---hellow==='
+t = t.strip('-')
+t = t.strip('-=')
+
+#除去字符操作并不会对位于字符串中间的文本起作用。如果要对里面的空格等执行某些操作可以使用replace或者正则表达式。
+
+#2.12文本过滤
+
+#2.13对齐文本字符串
+#对于基本的字符串对齐要求，可以使用字符串的ljust()、rjust()、center()方法。
+text = 'hello world'
+text.ljust(20)
+text.rjust(20)
+text.center(20)
+
+#所有这些方法都可以接受一个可选的填充字符串。
+text.rjust(20,'=')
+text.center(20,'*')
+
+#format()函数也可以用来轻松完成对其任务。需要做的就是合理利用'<'、'>',或'^'字符以及一个期望的宽度值。
+s = format(text,'>20')
+print(s)
+#         hello world
+s = format(text,'^20')
+print(s)
+#    hello world
+s = format(text,'*>20')
+print(s)
+
+#*********hello world
+s = format(text,'*^20')
+print(s)
+#****hello world*****
+
+#当格式化多个值，这些格式化代码也可以用在format()方法中。
+s = '{:>10s}{:>10s}'.format('Hello ','world')
+print (s)   #    Hello      world
+
+#format()的好处之一就是它能用于任何值
+x = 1.2345
+s = format(x,'>10')
+print(s)        #    1.2345
+
+#2.14字符串的连接与合并
+
+
+
 
 
 
