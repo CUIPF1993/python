@@ -1,6 +1,5 @@
 from functools import wraps
-from collections import defaultdict
-
+import re
 
 def validate(*ty_args,**ty_kwargs):
     def decorate(func):
@@ -76,12 +75,13 @@ def max(key,num,value):
     if value > num:
         raise ValueError("{} must be smaller {}".format(key,num))
 
+@register
+def regx(key,pattern,value):
+    if not re.fullmatch(pattern,value):
+        raise ValueError("{} must be fullmatch {}".format(key,pattern))
 
 
-
-
-
-@validate(int,age= int,name=str,age_min=12,age_max=36,name_minlength=3,name_maxlength=8)
+@validate(int,age= int,name=str,age_min=12,age_max=36,name_minlength=3,name_maxlength=8,name_regx="c.*")
 def fun(weight,age,name):
     pass
 
