@@ -1,6 +1,10 @@
 import numbers
-
+import re
 a = 12
 print(int.__name__)
 
-float(2.2)
+a = re.fullmatch("",'ab')
+print(type(a))
+print(a)
+print(a.group())
+
