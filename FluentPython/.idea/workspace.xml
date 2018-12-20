@@ -12,36 +12,41 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/FluentPython$02.coverage" NAME="02属性描述符 Coverage Results" MODIFIED="1545290862008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
+    <SUITE FILE_PATH="coverage/FluentPython$03_.coverage" NAME="03装饰器-参数验证 Coverage Results" MODIFIED="1545313116900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/07函数装饰器和闭包" />
     <SUITE FILE_PATH="coverage/FluentPython$03.coverage" NAME="03属性描述符 Coverage Results" MODIFIED="1545292753234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
-    <SUITE FILE_PATH="coverage/FluentPython$01.coverage" NAME="01属性描述符实例 Coverage Results" MODIFIED="1545277640667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
-    <SUITE FILE_PATH="coverage/FluentPython$test.coverage" NAME="test Coverage Results" MODIFIED="1545292414405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
+    <SUITE FILE_PATH="coverage/FluentPython$01.coverage" NAME="01装饰器简单实例 Coverage Results" MODIFIED="1545296333797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/07函数装饰器和闭包" />
+    <SUITE FILE_PATH="coverage/FluentPython$test.coverage" NAME="test Coverage Results" MODIFIED="1545299710940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
+    <SUITE FILE_PATH="coverage/FluentPython$02_.coverage" NAME="02装饰器-参数验证 Coverage Results" MODIFIED="1545299126256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/07函数装饰器和闭包" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1294616809">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="12" />
+          <entry key="py" value="18" />
+          <entry key="pyi" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="12" />
+          <entry key="Python" value="18" />
+          <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3309" />
+          <entry key="py" value="6465" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3309" />
+          <entry key="Python" value="6465" />
         </counts>
       </usages-collector>
     </session>
@@ -49,13 +54,43 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20属性描述符/01属性描述符实例.py">
+        <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/01装饰器简单实例.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-880">
-              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="400">
+              <caret line="26" selection-start-line="26" selection-end-line="28" selection-end-column="15" />
               <folding>
-                <marker date="1545279333265" expanded="true" signature="1535:1897" ph="..." />
-                <marker date="1545279333265" expanded="true" signature="1908:1913" ph="..." />
+                <element signature="e#0#11#0" expanded="true" />
+                <marker date="1545297120065" expanded="true" signature="79:84" ph="..." />
+                <marker date="1545297120065" expanded="true" signature="641:652" ph="..." />
+                <marker date="1545297120065" expanded="true" signature="943:1134" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/02装饰器-参数验证.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+                <marker date="1545299196813" expanded="true" signature="110:811" ph="..." />
+                <marker date="1545299196813" expanded="true" signature="811:813" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/03装饰器-参数验证.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="647">
+              <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+                <marker date="1545313116874" expanded="true" signature="2155:2248" ph="..." />
+                <marker date="1545313116874" expanded="true" signature="2362:2399" ph="..." />
               </folding>
             </state>
           </provider>
@@ -64,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/20属性描述符/02属性描述符.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1249">
+            <state relative-caret-position="393">
               <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
                 <marker date="1545290897954" expanded="true" signature="504:509" ph="..." />
@@ -76,36 +111,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-271">
-              <caret line="89" column="59" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-                <marker date="1545293170022" expanded="true" signature="1950:1963" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/20属性描述符/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="260">
+              <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/ProgramData/Anaconda3/Lib/numbers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1477">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -127,8 +140,11 @@
       <list>
         <option value="$PROJECT_DIR$/20属性描述符/01属性描述符实例.py" />
         <option value="$PROJECT_DIR$/20属性描述符/02属性描述符.py" />
-        <option value="$PROJECT_DIR$/20属性描述符/test.py" />
         <option value="$PROJECT_DIR$/20属性描述符/03属性描述符.py" />
+        <option value="$PROJECT_DIR$/07函数装饰器和闭包/01装饰器简单实例.py" />
+        <option value="$PROJECT_DIR$/07函数装饰器和闭包/02装饰器-参数验证.py" />
+        <option value="$PROJECT_DIR$/20属性描述符/test.py" />
+        <option value="$PROJECT_DIR$/07函数装饰器和闭包/03装饰器-参数验证.py" />
       </list>
     </option>
   </component>
@@ -138,7 +154,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="207" />
     <option name="y" value="284" />
     <option name="width" value="1936" />
@@ -162,6 +178,11 @@
             <path>
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
+              <item name="07函数装饰器和闭包" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
               <item name="20属性描述符" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -180,6 +201,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python\FluentPython\07函数装饰器和闭包" />
       <recent name="D:\python\FluentPython\20属性描述符" />
     </key>
   </component>
@@ -195,8 +217,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.03属性描述符">
-    <configuration name="01属性描述符实例" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.03装饰器-参数验证">
+    <configuration name="01装饰器简单实例" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FluentPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -204,12 +226,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/20属性描述符" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/07函数装饰器和闭包" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/20属性描述符/01属性描述符实例.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/07函数装饰器和闭包/01装饰器简单实例.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -218,7 +240,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="02属性描述符" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="02装饰器-参数验证" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FluentPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -226,12 +248,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/20属性描述符" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/07函数装饰器和闭包" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/20属性描述符/02属性描述符.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/07函数装饰器和闭包/02装饰器-参数验证.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="03装饰器-参数验证" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FluentPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/07函数装饰器和闭包" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/07函数装饰器和闭包/03装饰器-参数验证.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -285,17 +329,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.01属性描述符实例" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.02属性描述符" />
       <item itemvalue="Python.03属性描述符" />
+      <item itemvalue="Python.01装饰器简单实例" />
+      <item itemvalue="Python.02装饰器-参数验证" />
+      <item itemvalue="Python.03装饰器-参数验证" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.03属性描述符" />
+        <item itemvalue="Python.03装饰器-参数验证" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.02属性描述符" />
-        <item itemvalue="Python.01属性描述符实例" />
+        <item itemvalue="Python.02装饰器-参数验证" />
+        <item itemvalue="Python.01装饰器简单实例" />
+        <item itemvalue="Python.03属性描述符" />
       </list>
     </recent_temporary>
   </component>
@@ -313,11 +359,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19989339" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -327,8 +372,8 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28762543" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3277592" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -345,18 +390,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-313451744/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-696">
           <caret line="3032" column="16" lean-forward="true" selection-start-line="3032" selection-start-column="16" selection-end-line="3032" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/numbers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1477">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -371,9 +420,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1545293170022" expanded="true" signature="1950:1963" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/numbers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1477">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/math.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-780" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/typing.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="344" column="8" selection-start-line="344" selection-start-column="8" selection-end-line="344" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/20属性描述符/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/02装饰器-参数验证.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1545299196813" expanded="true" signature="110:811" ph="..." />
+            <marker date="1545299196813" expanded="true" signature="811:813" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/01装饰器简单实例.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="26" selection-start-line="26" selection-end-line="28" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1545297120065" expanded="true" signature="79:84" ph="..." />
+            <marker date="1545297120065" expanded="true" signature="641:652" ph="..." />
+            <marker date="1545297120065" expanded="true" signature="943:1134" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/20属性描述符/02属性描述符.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1249">
+        <state relative-caret-position="393">
           <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
           <folding>
             <marker date="1545290897954" expanded="true" signature="504:509" ph="..." />
@@ -384,23 +498,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/20属性描述符/test.py">
+    <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/03装饰器-参数验证.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="647">
+          <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-271">
-          <caret line="89" column="59" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1545293170022" expanded="true" signature="1950:1963" ph="..." />
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1545313116874" expanded="true" signature="2155:2248" ph="..." />
+            <marker date="1545313116874" expanded="true" signature="2362:2399" ph="..." />
           </folding>
         </state>
       </provider>
