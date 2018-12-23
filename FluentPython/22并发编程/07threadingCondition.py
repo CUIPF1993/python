@@ -37,6 +37,7 @@
 #     tianmao.start()
 
 from threading import Thread,Condition
+from threading import RLock
 
 
 # 通过threding。condation 完成对话
