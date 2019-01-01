@@ -103,27 +103,23 @@ class Metaclass(type):
 
                 mappings[key] = value
 
-        for k in mappings.keys():
-            attrs.pop(k)
+        # for k in mappings.keys():
+        #     attrs.pop(k)
         attrs['__mappings__'] = mappings  # 保存属性和列的映射关系
         return type.__new__(cls, name, bases, attrs)
 
-    def __init__(cls, name,bases,attrs):
-        print('b')
-        print(name)
-        print(bases)
-        print(attrs)
-        super().__init__(name,bases,attrs)
-
-
 class Person(metaclass=Metaclass):
-
 
     name = CharField()
 
     def __init__(self,*args,**kwargs):
+        for k,v in self.__mappings__.items():
+           setattr(self,k,kwargs.get(k))
         super().__init__()
 
 
 
-p = Person(3,4,name='bob')
+p = Person(3,4,name=123)
+print(p.__dict__)
+print(Person.__class__)
+print(p.name)
