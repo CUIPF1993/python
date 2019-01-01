@@ -48,9 +48,6 @@ class CharField(Field):
                 raise ValueError("vlaue can't fullmatch {}".format(self.regx))
 
 class Model:
-
-    name = CharField()
-
     def __init__(self,*args,**kwargs):
         cls = self.__class__
         for key,value in cls.__dict__.items():
