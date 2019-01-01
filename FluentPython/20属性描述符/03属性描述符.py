@@ -101,8 +101,6 @@ class CharField(Field):
                 raise ValueError("vlaue can't fullmatch {}".format(self.regx))
 
 
-
-
 class IntegerField(FloatField):
     _data_type = int
 
