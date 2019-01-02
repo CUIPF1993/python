@@ -1,16 +1,20 @@
 import re
 import copy
+from abc import abstractmethod
 
 class Field(object):
     __count =1
 
-    def __init__(self,*args,**kwargs):
+    def __init__(self,label = None,help_text=None,**kwargs):
         cls = self.__class__
         prefix = cls.__name__
         self.__count = cls.__count
         self.name = '{prefix}__{count}'.format(prefix=prefix,count=cls.__count)
-        cls.__count+=1
 
+        self.label = label
+        self.help_text = help_text
+
+        cls.__count+=1
 
     def __get__(self, instance, owner):
         if instance is None:
@@ -24,7 +28,7 @@ class Field(object):
     def __str__(self):
         return self.__class__.__name__
 
-
+    @abstractmethod
     def _validate(self,value):
         raise NotImplementedError('please implement self._validate')
 
@@ -34,8 +38,8 @@ class Field(object):
 
 
 class CharField(Field):
-    def __init__(self,min_length:int=0,max_length:int=128,regx:str='',*args,**kwargs):
-        super().__init__(*args,**kwargs)
+    def __init__(self,min_length:int=0,max_length:int=128,regx:str='',**kwargs):
+        super().__init__(**kwargs)
         if not isinstance(min_length,int):
             raise TypeError("min_length must be int")
         if not isinstance(max_length, int):
@@ -43,6 +47,12 @@ class CharField(Field):
         self.min_length = min_length
         self.max_length = max_length
         self.regx = regx
+
+        self.classes = ""
+        if kwargs.get('classes'):
+            self.classes = kwargs.get('classes')
+
+        self._html = '<input id="{id}" name="{name}" class="{classes}" value="" maxlength="{maxlength}" autocomplete="off">'
 
     def _validate(self,value):
         if not isinstance(value,str):
@@ -58,16 +68,20 @@ class CharField(Field):
                 raise ValueError("vlaue can't fullmatch {}".format(self.regx))
 
 
-class Model:
+    def __str__(self):
+        return self._html.format(id =self.name,name = self.name,classes=self.classes,maxlength = self.max_length)
+
+class BaseModel:
     def __init__(self,*args,**kwargs):
         cls = self.__class__
         mappings = dict()
+
         for key,value in cls.__dict__.items():
             if not key.startswith('__') and isinstance(value, Field):
                 mappings[key] = value
         # 获取经过排序的字典对象
+        length = len(mappings)
         order_field = sorted(mappings.items(),key=lambda item:item[1].count)
-
         self._order_field = copy.deepcopy(order_field)
         for i,value in enumerate(args):
             try:
@@ -82,25 +96,48 @@ class Model:
         super().__init__()
 
     def __iter__(self):
-        cls = self.__class__
-        for key, value in cls.__dict__.items():
-            if not key.startswith('_'):
-                value = getattr(self,key,None)
-                if value:
-                    yield value
+        for key,field in self._order_field:
+            yield field
+
+    def __call__(self, *args, **kwargs):
+        return [str(field) for field in self]
 
 
+class BaseModeForm:
+    pass
 
-class User(Model):
+
+class User(BaseModel):
     name = CharField()
     nickname = CharField()
     password = CharField()
     class_name = CharField()
     teacher = CharField()
+    teachers = CharField()
 
-u = User('cc',nickname='jackchen',class_name='11',password = '12345',teacher='jag')
+u = User('cc',nickname='jackchen',class_name='11',password = '12345',teacher='jag',teachers='jag')
 print(u.name)
 
-next(iter(u))
+for field in u:
+    print(field)
 
+# <input id="CharField__1" name="CharField__1" class="" value="" maxlength="128" autocomplete="off">
+# <input id="CharField__2" name="CharField__2" class="" value="" maxlength="128" autocomplete="off">
+# <input id="CharField__3" name="CharField__3" class="" value="" maxlength="128" autocomplete="off">
+# <input id="CharField__4" name="CharField__4" class="" value="" maxlength="128" autocomplete="off">
+# <input id="CharField__5" name="CharField__5" class="" value="" maxlength="128" autocomplete="off">
+# <input id="CharField__6" name="CharField__6" class="" value="" maxlength="128" autocomplete="off">
 
+print(u())
+
+#
+# ['<input id="CharField__1" name="CharField__1" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__2" name="CharField__2" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__3" name="CharField__3" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__4" name="CharField__4" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__5" name="CharField__5" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__6" name="CharField__6" class="" value="" maxlength="128" autocomplete="off">']
+
+for field in u:
+    print(field.name)
+# CharField__1
+# CharField__2
+# CharField__3
+# CharField__4
+# CharField__5
+# CharField__6
