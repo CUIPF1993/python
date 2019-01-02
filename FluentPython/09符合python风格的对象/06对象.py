@@ -103,9 +103,6 @@ class BaseModel:
         return [str(field) for field in self]
 
 
-class BaseModeForm:
-    pass
-
 
 class User(BaseModel):
     name = CharField()
@@ -115,29 +112,97 @@ class User(BaseModel):
     teacher = CharField()
     teachers = CharField()
 
-u = User('cc',nickname='jackchen',class_name='11',password = '12345',teacher='jag',teachers='jag')
-print(u.name)
 
-for field in u:
-    print(field)
+class BaseModeSerializer:
 
-# <input id="CharField__1" name="CharField__1" class="" value="" maxlength="128" autocomplete="off">
-# <input id="CharField__2" name="CharField__2" class="" value="" maxlength="128" autocomplete="off">
-# <input id="CharField__3" name="CharField__3" class="" value="" maxlength="128" autocomplete="off">
-# <input id="CharField__4" name="CharField__4" class="" value="" maxlength="128" autocomplete="off">
-# <input id="CharField__5" name="CharField__5" class="" value="" maxlength="128" autocomplete="off">
-# <input id="CharField__6" name="CharField__6" class="" value="" maxlength="128" autocomplete="off">
+    class Meta:
+        model = None
+        fields = "__all__"
 
-print(u())
+    def __init__(self,instance=None,data=None,many=False):
+        cls = self.__class__
+        if instance and not isinstance(instance,cls.Meta.model):
+            raise TypeError("instance must be {}".format(cls.Meta.model.__name__))
 
+        if instance and data:
+            raise ValueError("instance and data just need one")
+        self.instance = instance
+        self.many = many
+        self.data =data
+
+
+    @property
+    def dict(self):
+        if self.many == False:
+            result = self._serialization(instance=self.instance)
+        else:
+            result =[]
+            result.append(self._serialization(instance=self.instance))
+        return result
+
+    def _serialization(self,instance):
+        pass
+
+
+    @property
+    def models(self):
+        if not isinstance(self.data,list):
+            result = self._deserialization(self.data)
+        else:
+            result = []
+            result.append(self._serialization(self.data))
+        return self
+
+    def _deserialization(self,data):
+        cls = self.__class__
+        model_cls = cls.Meta.model
+        order_field =[]
+        for key,field in model_cls.__dict__.items():
+            if not key.startswith('__') and isinstance(field,Field):
+                order_field.append((key,field))
+        model = model_cls(**data)
+
+
+        return model
+
+
+
+
+
+class UserSerializer(BaseModeSerializer):
+    class Meta:
+        model = User
+
+
+
+
+u = User(name='cc',nickname='jackchen',class_name='11',password = '12345',teacher='jag',teachers='jag')
+data = {'name':'cc','nickname':'jackchen','class_name':'11','password':'12345','teacher':'jag','teachers':'jag'}
+s = UserSerializer(data=data)
+m = s.models
+print(type(m))
+
+
+
+
+
+
+
+
+
+
+
+
+
+# b = BaseModeForm()
+# cls = b.__class__
+# print(cls.Meta.model)
+
+
+
+# u = User('cc',nickname='jackchen',class_name='11',password = '12345',teacher='jag',teachers='jag')
+# print(u.name)
 #
-# ['<input id="CharField__1" name="CharField__1" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__2" name="CharField__2" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__3" name="CharField__3" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__4" name="CharField__4" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__5" name="CharField__5" class="" value="" maxlength="128" autocomplete="off">', '<input id="CharField__6" name="CharField__6" class="" value="" maxlength="128" autocomplete="off">']
+# for field in u:
+#     print(field)
 
-for field in u:
-    print(field.name)
-# CharField__1
-# CharField__2
-# CharField__3
-# CharField__4
-# CharField__5
-# CharField__6

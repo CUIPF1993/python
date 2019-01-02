@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8747b975-7f72-4de7-92eb-646ff3f6ff2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/04对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/04对象.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/06对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/06对象.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +25,7 @@
     <SUITE FILE_PATH="coverage/FluentPython$03.coverage" NAME="03对象 Coverage Results" MODIFIED="1546357622913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
     <SUITE FILE_PATH="coverage/FluentPython$02Future.coverage" NAME="02Future对象 Coverage Results" MODIFIED="1545569062924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/10使用期物处理并发" />
     <SUITE FILE_PATH="coverage/FluentPython$09.coverage" NAME="09数组 Coverage Results" MODIFIED="1546348828038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/02序列构成的数组" />
-    <SUITE FILE_PATH="coverage/FluentPython$06.coverage" NAME="06委托生成器 Coverage Results" MODIFIED="1545551870132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/16协程" />
+    <SUITE FILE_PATH="coverage/FluentPython$06.coverage" NAME="06对象 Coverage Results" MODIFIED="1546425198602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
     <SUITE FILE_PATH="coverage/FluentPython$01.coverage" NAME="01对象 Coverage Results" MODIFIED="1546346678658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
     <SUITE FILE_PATH="coverage/FluentPython$11ThreadPoolExecutor.coverage" NAME="11ThreadPoolExecutor Coverage Results" MODIFIED="1545363680435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/22并发编程" />
     <SUITE FILE_PATH="coverage/FluentPython$02_.coverage" NAME="02装饰器-参数验证 Coverage Results" MODIFIED="1545299126256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/07函数装饰器和闭包" />
@@ -67,13 +66,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="55" />
-          <entry key="py" value="21289" />
+          <entry key="py" value="22719" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="55" />
-          <entry key="Python" value="21289" />
+          <entry key="Python" value="22719" />
         </counts>
       </usages-collector>
     </session>
@@ -119,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/05对象.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1267">
-              <caret line="135" column="14" lean-forward="true" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+            <state relative-caret-position="164">
+              <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
                 <marker date="1546397569780" expanded="true" signature="2154:2159" ph="..." />
@@ -132,11 +131,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06对象.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="106" column="8" lean-forward="true" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
+            <state relative-caret-position="955">
+              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1546397855627" expanded="true" signature="3349:3361" ph="..." />
+                <marker date="1546425198566" expanded="true" signature="4055:4282" ph="..." />
+                <marker date="1546425198566" expanded="true" signature="4985:5310" ph="..." />
               </folding>
             </state>
           </provider>
@@ -146,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="421">
-              <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
               <folding>
                 <marker date="1546396694358" expanded="true" signature="93:98" ph="..." />
                 <marker date="1546396694358" expanded="true" signature="196:201" ph="..." />
@@ -335,29 +335,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.05对象">
-    <configuration name="02对象" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="FluentPython" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/09符合python风格的对象" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/09符合python风格的对象/02对象.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.06对象">
     <configuration name="03对象" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FluentPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -424,6 +402,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="06对象" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FluentPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/09符合python风格的对象" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/09符合python风格的对象/06对象.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FluentPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -447,19 +447,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.02对象" />
       <item itemvalue="Python.03对象" />
       <item itemvalue="Python.04对象" />
       <item itemvalue="Python.test (1)" />
       <item itemvalue="Python.05对象" />
+      <item itemvalue="Python.06对象" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.06对象" />
         <item itemvalue="Python.05对象" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.04对象" />
         <item itemvalue="Python.03对象" />
-        <item itemvalue="Python.02对象" />
       </list>
     </recent_temporary>
   </component>
@@ -481,14 +481,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.68561876" weight="0.19402985" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.31438127" visible="true" weight="0.20255864" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25195095" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37012264" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3478261" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -838,7 +837,7 @@
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
-          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding>
             <marker date="1546396694358" expanded="true" signature="93:98" ph="..." />
             <marker date="1546396694358" expanded="true" signature="196:201" ph="..." />
@@ -868,8 +867,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/05对象.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1267">
-          <caret line="135" column="14" lean-forward="true" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+        <state relative-caret-position="164">
+          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
             <marker date="1546397569780" expanded="true" signature="2154:2159" ph="..." />
@@ -879,11 +878,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06对象.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="106" column="8" lean-forward="true" selection-start-line="106" selection-start-column="8" selection-end-line="106" selection-end-column="8" />
+        <state relative-caret-position="955">
+          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1546397855627" expanded="true" signature="3349:3361" ph="..." />
+            <marker date="1546425198566" expanded="true" signature="4055:4282" ph="..." />
+            <marker date="1546425198566" expanded="true" signature="4985:5310" ph="..." />
           </folding>
         </state>
       </provider>
