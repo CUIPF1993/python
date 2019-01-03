@@ -22,9 +22,14 @@ class WWDisk(WDDisk):
 
     def pt(self):
         print(self._BaseDisk__pt)
-b = WDDisk()
-b.write('123')
+# b = WDDisk()
+# b.write('123')
+#
+# w = WWDisk()
+# w.pt()
 
-w = WWDisk()
-w.pt()
+a = '1233'
+print(str(a))
+a.encode()
 
+from types import MappingProxyType

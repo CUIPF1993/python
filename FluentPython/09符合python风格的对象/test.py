@@ -32,7 +32,8 @@ class School:
 a = Person()
 b = Person()
 
-
+卡是 = 1244
+print(卡是)
 
 
 print('GHJJ'.lower())
