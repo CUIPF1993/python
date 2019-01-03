@@ -1,7 +1,10 @@
 import re
 from abc import abstractmethod
+import abc
+from models import BaseModel
 
-class Field(object):
+
+class Field(metaclass=abc.ABCMeta):
     __count =1
     type_code = None
 
@@ -94,4 +97,45 @@ class Float(IntegerField):
 
 class BoolField(IntegerField):
     type_code = bool
+
+
+class EmailField(Field):
+    type_code = str
+
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.regx ='^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$'
+
+    def _validate(self,value):
+        cls = self.__class__
+        if not isinstance(value,cls.type_code):
+            raise TypeError('value must be {}'.format(cls.__name__))
+        if not re.fullmatch(self.regx,value):
+            raise ValueError("邮箱不符合格式")
+
+
+class Foreign(object):
+
+    # related_model = None
+
+    def __init__(self,to,related_name=None):
+        if not isinstance(to,BaseModel):
+            raise  TypeError("type error")
+
+        cls = self.__class__
+        # 设置方向查询字段名
+        if related_name:
+           self.related_name = related_name
+        else:
+            self.related_name = cls.__name__.lower()
+
+        # 设置相关联的model
+
+
+    def __get__(self, instance, owner):
+        return instance
+
+
+    def __set__(self, instance, value):
+        pass
 

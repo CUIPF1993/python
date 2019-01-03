@@ -32,15 +32,7 @@ class School:
 a = Person()
 b = Person()
 
-print(a.count)
-print(b.count)
-
-s = School
-print(s.a.count)
-print(s.b.count)
 
 
-c = '{name}{age}'
 
-b = c.format(name='bob')
-print(b)
+print('GHJJ'.lower())

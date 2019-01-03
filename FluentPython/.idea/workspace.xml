@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8747b975-7f72-4de7-92eb-646ff3f6ff2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/FluentPython.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FluentPython.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,10 +21,10 @@
     <SUITE FILE_PATH="coverage/FluentPython$07threadingCondition.coverage" NAME="07threadingCondition Coverage Results" MODIFIED="1545358602580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/22并发编程" />
     <SUITE FILE_PATH="coverage/FluentPython$07_Rlock.coverage" NAME="07线程锁_Rlock Coverage Results" MODIFIED="1545356516510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/22并发编程" />
     <SUITE FILE_PATH="coverage/FluentPython$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1546433522657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象/对象封装" />
-    <SUITE FILE_PATH="coverage/FluentPython$test.coverage" NAME="test Coverage Results" MODIFIED="1546350529005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/20属性描述符" />
+    <SUITE FILE_PATH="coverage/FluentPython$test.coverage" NAME="test Coverage Results" MODIFIED="1546481763704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
     <SUITE FILE_PATH="coverage/FluentPython$05yieldfrom.coverage" NAME="05yieldfrom Coverage Results" MODIFIED="1545557538088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/16协程" />
     <SUITE FILE_PATH="coverage/FluentPython$01futures.coverage" NAME="01futures Coverage Results" MODIFIED="1545568709035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/10使用期物处理并发" />
-    <SUITE FILE_PATH="coverage/FluentPython$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1546396694413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
+    <SUITE FILE_PATH="coverage/FluentPython$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1546486873144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象/computer" />
     <SUITE FILE_PATH="coverage/FluentPython$03.coverage" NAME="03对象 Coverage Results" MODIFIED="1546357622913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/09符合python风格的对象" />
     <SUITE FILE_PATH="coverage/FluentPython$02Future.coverage" NAME="02Future对象 Coverage Results" MODIFIED="1545569062924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/10使用期物处理并发" />
     <SUITE FILE_PATH="coverage/FluentPython$09.coverage" NAME="09数组 Coverage Results" MODIFIED="1546348828038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/02序列构成的数组" />
@@ -53,31 +53,32 @@
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="133" />
+          <entry key="py" value="144" />
           <entry key="pyi" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="133" />
+          <entry key="Python" value="144" />
           <entry key="PythonStub" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="55" />
-          <entry key="py" value="23154" />
+          <entry key="py" value="25347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="55" />
-          <entry key="Python" value="23154" />
+          <entry key="Python" value="25347" />
         </counts>
       </usages-collector>
     </session>
@@ -87,50 +88,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1940">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="-1980">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1546436253898" expanded="true" signature="2350:2355" ph="..." />
-                <marker date="1546436253898" expanded="true" signature="2713:2736" ph="..." />
+                <marker date="1546486605080" expanded="true" signature="2406:2411" ph="..." />
+                <marker date="1546486605080" expanded="true" signature="2817:2838" ph="..." />
+                <marker date="1546486605080" expanded="true" signature="3290:3660" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20属性描述符/01属性描述符实例.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420" />
-          </provider>
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/computer.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20属性描述符/02属性描述符.py">
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/cpu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06对象.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1275">
-              <caret line="106" selection-start-line="106" selection-end-line="112" selection-end-column="26" />
+            <state relative-caret-position="80">
+              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1546425198566" expanded="true" signature="4055:4282" ph="..." />
-                <marker date="1546425198566" expanded="true" signature="4985:5310" ph="..." />
+                <element signature="e#0#30#0" expanded="true" />
+                <marker date="1546486605113" expanded="true" signature="92:97" ph="..." />
+                <marker date="1546486605113" expanded="true" signature="576:624" ph="..." />
+                <marker date="1546486605113" expanded="true" signature="695:934" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/storage.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/disk.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="-295">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+                <marker date="1546491526082" expanded="true" signature="86:91" ph="..." />
+                <marker date="1546491526082" expanded="true" signature="741:1251" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +142,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            <state relative-caret-position="-180">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,40 +154,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/modelserializer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-720">
+            <state relative-caret-position="-660">
               <caret column="24" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/main.py">
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="465">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
+                <marker date="1546486865103" expanded="true" signature="85:86" ph="..." />
+                <marker date="1546486865103" expanded="true" signature="85:87" ph="..." />
+                <marker date="1546486865103" expanded="true" signature="85:91" ph="..." />
+                <marker date="1546486865103" expanded="true" signature="263:264" ph="..." />
+                <marker date="1546486865103" expanded="true" signature="263:269" ph="..." />
+                <marker date="1546486865103" expanded="true" signature="424:478" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/01对象.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02对象.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/IO.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -198,12 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/22并发编程/03多线程问题.py" />
-        <option value="$PROJECT_DIR$/22并发编程/04线程锁.py" />
-        <option value="$PROJECT_DIR$/22并发编程/05守护线程.py" />
-        <option value="$PROJECT_DIR$/22并发编程/06线程通信.py" />
-        <option value="$PROJECT_DIR$/22并发编程/060线程通信.py" />
-        <option value="$PROJECT_DIR$/22并发编程/06线程通信0.py" />
         <option value="$PROJECT_DIR$/22并发编程/07线程锁_Rlock.py" />
         <option value="$PROJECT_DIR$/22并发编程/08.py" />
         <option value="$PROJECT_DIR$/22并发编程/08Semaphore信号量.py" />
@@ -240,7 +234,6 @@
         <option value="$PROJECT_DIR$/09符合python风格的对象/03元类编程.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/03对象.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/04对象.py" />
-        <option value="$PROJECT_DIR$/09符合python风格的对象/test.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/05对象.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/06对象.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/model/fields.py" />
@@ -248,7 +241,14 @@
         <option value="$PROJECT_DIR$/09符合python风格的对象/model/main.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/model/models.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/model/modelserializer.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/test.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/computer.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/storage.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/IO.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/cpu.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/disk.py" />
+        <option value="$PROJECT_DIR$/09符合python风格的对象/computer/test.py" />
       </list>
     </option>
   </component>
@@ -258,7 +258,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -272,6 +272,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,6 +284,12 @@
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
               <item name="09符合python风格的对象" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
+              <item name="09符合python风格的对象" type="462c0819:PsiDirectoryNode" />
+              <item name="computer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
@@ -303,7 +310,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,7 +343,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test (1)">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FluentPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -360,8 +366,59 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FluentPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/09符合python风格的对象/computer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/09符合python风格的对象/computer/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FluentPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/09符合python风格的对象" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/09符合python风格的对象/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.test (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -383,11 +440,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.68561876" weight="0.19402985" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.31438127" visible="true" weight="0.20682302" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.31438127" visible="true" weight="0.20895523" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -427,55 +484,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/22并发编程/01线程创建.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/multiprocessing/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="72" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-313451744/_thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/collections/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="1081" column="8" selection-start-line="1081" selection-start-column="8" selection-end-line="1081" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-313451744/_collections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="194" column="8" selection-start-line="194" selection-start-column="8" selection-end-line="194" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="236" column="29" lean-forward="true" selection-start-line="236" selection-start-column="29" selection-end-line="236" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/22并发编程/09进程池.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" selection-start-column="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/16协程/02使用协程计算移动平均值.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -640,13 +648,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/03元类编程.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1028946728/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108900">
-          <caret line="5445" column="6" selection-start-line="5445" selection-start-column="6" selection-end-line="5445" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/ProgramData/Anaconda3/envs/django_python/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3400">
@@ -694,64 +695,15 @@
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <marker date="1546396694358" expanded="true" signature="93:98" ph="..." />
-            <marker date="1546396694358" expanded="true" signature="196:201" ph="..." />
-            <marker date="1546396694358" expanded="true" signature="368:405" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/01对象.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02对象.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20属性描述符/01属性描述符实例.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/20属性描述符/02属性描述符.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1940">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1546436253898" expanded="true" signature="2350:2355" ph="..." />
-            <marker date="1546436253898" expanded="true" signature="2713:2736" ph="..." />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06对象.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1275">
+        <state relative-caret-position="2080">
           <caret line="106" selection-start-line="106" selection-end-line="112" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -761,26 +713,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/models.py">
+    <entry file="file://$PROJECT_DIR$/20属性描述符/03属性描述符.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        <state relative-caret-position="680">
+          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/modelserializer.py">
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/01对象.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        <state relative-caret-position="780">
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02对象.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2020">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <marker date="1546481763675" expanded="true" signature="93:98" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/envs/django_python/Lib/abc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4375">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/fields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1980">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1546486605080" expanded="true" signature="2406:2411" ph="..." />
+            <marker date="1546486605080" expanded="true" signature="2817:2838" ph="..." />
+            <marker date="1546486605080" expanded="true" signature="3290:3660" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/对象封装/modelserializer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/computer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/cpu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <marker date="1546486605113" expanded="true" signature="92:97" ph="..." />
+            <marker date="1546486605113" expanded="true" signature="576:624" ph="..." />
+            <marker date="1546486605113" expanded="true" signature="695:934" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/IO.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/storage.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/disk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <marker date="1546491526082" expanded="true" signature="86:91" ph="..." />
+            <marker date="1546491526082" expanded="true" signature="741:1251" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1028946728/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1829">
+          <caret line="339" column="4" selection-start-line="339" selection-start-column="4" selection-end-line="339" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/computer/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1546486865103" expanded="true" signature="85:86" ph="..." />
+            <marker date="1546486865103" expanded="true" signature="85:87" ph="..." />
+            <marker date="1546486865103" expanded="true" signature="85:91" ph="..." />
+            <marker date="1546486865103" expanded="true" signature="263:264" ph="..." />
+            <marker date="1546486865103" expanded="true" signature="263:269" ph="..." />
+            <marker date="1546486865103" expanded="true" signature="424:478" ph="..." />
           </folding>
         </state>
       </provider>
