@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8747b975-7f72-4de7-92eb-646ff3f6ff2b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/02对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/02field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/03对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/03field.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/04对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/04model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/05对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/05model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/06对象.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/06model_serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/computer/disk.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/computer/disk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/computer/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/computer/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09符合python风格的对象/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/09符合python风格的对象/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,24 +50,29 @@
     <session id="1294616809">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="16" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="html" value="1" />
+          <entry key="js" value="2" />
           <entry key="py" value="155" />
           <entry key="pyi" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTML" value="1" />
+          <entry key="JavaScript" value="2" />
           <entry key="Python" value="155" />
           <entry key="PythonStub" value="6" />
         </counts>
@@ -82,11 +80,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="108" />
+          <entry key="html" value="29" />
+          <entry key="js" value="274" />
           <entry key="py" value="26568" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="HTML" value="29" />
+          <entry key="JavaScript" value="274" />
           <entry key="PLAIN_TEXT" value="108" />
           <entry key="Python" value="26568" />
         </counts>
@@ -96,37 +98,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1028946728/builtins.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="4706" column="49" lean-forward="true" selection-start-line="4706" selection-start-column="47" selection-end-line="4706" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06model_serializer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="106" selection-start-line="106" selection-end-line="112" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/05model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
+            <state relative-caret-position="808">
               <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/jquery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/ProgramData/Anaconda3/envs/django_python/Lib/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="1445" selection-start-line="1445" selection-end-line="1445" />
             </state>
           </provider>
         </entry>
@@ -134,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/04model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1753">
+            <state relative-caret-position="2080">
               <caret line="105" selection-start-line="105" selection-end-line="105" />
             </state>
           </provider>
@@ -152,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02field.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
+            <state relative-caret-position="2020">
               <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
             </state>
           </provider>
@@ -161,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/07getattribute.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="580">
+              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
               <folding>
                 <marker date="1546508554983" expanded="true" signature="13:18" ph="..." />
               </folding>
@@ -173,17 +175,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/09符合python风格的对象/07getattribute_and__set__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+            <state relative-caret-position="1300">
+              <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/05函数.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="640">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <marker date="1546511478904" expanded="true" signature="120:125" ph="..." />
                 <marker date="1546511478904" expanded="true" signature="1519:1524" ph="..." />
@@ -199,6 +201,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -208,8 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/22并发编程/09线程池.py" />
-        <option value="$PROJECT_DIR$/22并发编程/10ThreadPoolExcutor.py" />
         <option value="$PROJECT_DIR$/22并发编程/10ThreadPoolExecutor.py" />
         <option value="$PROJECT_DIR$/22并发编程/10ProcessPoolExecutor.py" />
         <option value="$PROJECT_DIR$/22并发编程/12ThreadingCondition.py" />
@@ -259,6 +261,8 @@
         <option value="$PROJECT_DIR$/09符合python风格的对象/07getattribute.py" />
         <option value="$PROJECT_DIR$/09符合python风格的对象/07getattribute_and__set__.py" />
         <option value="$PROJECT_DIR$/07函数装饰器和闭包/05函数.py" />
+        <option value="$PROJECT_DIR$/html/test.html" />
+        <option value="$PROJECT_DIR$/html/jquery.js" />
       </list>
     </option>
   </component>
@@ -268,9 +272,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1864" />
+    <option name="y" value="31" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -292,12 +296,12 @@
             <path>
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
-              <item name="07函数装饰器和闭包" type="462c0819:PsiDirectoryNode" />
+              <item name="20属性描述符" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="FluentPython" type="462c0819:PsiDirectoryNode" />
-              <item name="20属性描述符" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FluentPython" type="b2602c69:ProjectViewProjectNode" />
@@ -311,6 +315,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/django_leaning/untitled" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -485,15 +490,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.68561876" weight="0.19402985" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.31438127" visible="true" weight="0.21321961" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.31438127" visible="true" weight="0.21748401" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24860647" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5429208" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3478261" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -532,27 +536,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/16协程/01生成器的基本行为.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16协程/06委托生成器.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16协程/07委托生成器.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="119" column="80" selection-start-line="119" selection-start-column="80" selection-end-line="119" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/22并发编程/12ThreadingCondition.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -732,11 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <marker date="1546486605113" expanded="true" signature="92:97" ph="..." />
-            <marker date="1546486605113" expanded="true" signature="576:624" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -747,10 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <marker date="1546500423695" expanded="true" signature="86:91" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -758,9 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -788,57 +759,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
           <caret line="32" column="6" lean-forward="true" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <marker date="1546504886302" expanded="true" signature="85:86" ph="..." />
-            <marker date="1546504886302" expanded="true" signature="85:87" ph="..." />
-            <marker date="1546504886302" expanded="true" signature="85:91" ph="..." />
-            <marker date="1546504886302" expanded="true" signature="263:264" ph="..." />
-            <marker date="1546504886302" expanded="true" signature="263:269" ph="..." />
-            <marker date="1546504886302" expanded="true" signature="424:478" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1028946728/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="4706" column="49" lean-forward="true" selection-start-line="4706" selection-start-column="47" selection-end-line="4706" selection-end-column="53" />
+        <state relative-caret-position="94120">
+          <caret line="4706" column="49" selection-start-line="4706" selection-start-column="47" selection-end-line="4706" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
+        <state relative-caret-position="780">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/06model_serializer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
+        <state relative-caret-position="2080">
           <caret line="106" selection-start-line="106" selection-end-line="112" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/05model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/04model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1753">
+        <state relative-caret-position="2080">
           <caret line="105" selection-start-line="105" selection-end-line="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02field.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -849,10 +797,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/02field.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2020">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="13" selection-end-line="101" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/07getattribute.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="580">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
           <folding>
             <marker date="1546508554983" expanded="true" signature="13:18" ph="..." />
           </folding>
@@ -861,20 +816,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/09符合python风格的对象/07getattribute_and__set__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+        <state relative-caret-position="1300">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/07函数装饰器和闭包/05函数.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="640">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <marker date="1546511478904" expanded="true" signature="120:125" ph="..." />
             <marker date="1546511478904" expanded="true" signature="1519:1524" ph="..." />
             <marker date="1546511478904" expanded="true" signature="1561:1566" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09符合python风格的对象/05model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/envs/django_python/Lib/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="1445" selection-start-line="1445" selection-end-line="1445" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
