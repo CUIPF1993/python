@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f7dc83b-d876-452c-b61f-7a2901f21983" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/matplot/02figure的简单使用.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matplot/03设置坐标.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matplot/03设置坐标轴.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matplot/04设置legend图例.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/matplot/06绘制散点图.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FluentPython/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FluentPython/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../neworkx练习/.vs/neworkx练习/v14/.suo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../neworkx练习/networkx02.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../neworkx练习/neworkx01.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../neworkx练习/neworkx练习.pyproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../neworkx练习/neworkx练习.sln" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/07绘制柱状图.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/08绘制等高线.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/09绘制image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/10绘制3D图形.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/11subplot绘制多图.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/matplot/11subplot绘制多图1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +17,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/deeplearning$09image.coverage" NAME="09绘制image Coverage Results" MODIFIED="1546781503360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
     <SUITE FILE_PATH="coverage/deeplearning$04legend.coverage" NAME="04设置legend图例 Coverage Results" MODIFIED="1546767767124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
+    <SUITE FILE_PATH="coverage/deeplearning$08.coverage" NAME="08绘制等高线 Coverage Results" MODIFIED="1546781277548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
+    <SUITE FILE_PATH="coverage/deeplearning$11subplot.coverage" NAME="11subplot绘制多图 Coverage Results" MODIFIED="1546782684428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
     <SUITE FILE_PATH="coverage/deeplearning$06.coverage" NAME="06绘制散点图 Coverage Results" MODIFIED="1546768197904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
     <SUITE FILE_PATH="coverage/deeplearning$02figure.coverage" NAME="02figure的简单使用 Coverage Results" MODIFIED="1546765841318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
+    <SUITE FILE_PATH="coverage/deeplearning$07.coverage" NAME="07绘制柱状图 Coverage Results" MODIFIED="1546769946786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
     <SUITE FILE_PATH="coverage/deeplearning$03.coverage" NAME="03设置坐标轴 Coverage Results" MODIFIED="1546767532543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
     <SUITE FILE_PATH="coverage/deeplearning$01.coverage" NAME="01简单图像绘制 Coverage Results" MODIFIED="1546765484194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
+    <SUITE FILE_PATH="coverage/deeplearning$103D.coverage" NAME="10绘制3D图形 Coverage Results" MODIFIED="1546781884718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
+    <SUITE FILE_PATH="coverage/deeplearning$11subplot1.coverage" NAME="11subplot绘制多图1 Coverage Results" MODIFIED="1546782790141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/matplot" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1718788850">
@@ -37,22 +39,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="14" />
+          <entry key="py" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="14" />
+          <entry key="Python" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1642" />
+          <entry key="py" value="3244" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1642" />
+          <entry key="Python" value="3244" />
         </counts>
       </usages-collector>
     </session>
@@ -60,91 +62,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matplot/01简单图像绘制.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matplot/02figure的简单使用.py">
+        <entry file="file://$PROJECT_DIR$/matplot/11subplot绘制多图.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matplot/03设置坐标.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="54" lean-forward="true" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matplot/03设置坐标轴.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="20" column="34" lean-forward="true" selection-start-line="25" selection-end-line="26" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/matplot/04设置legend图例.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-69">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-              <folding>
-                <element signature="e#39#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/matplot/06绘制散点图.py">
+        <entry file="file://$PROJECT_DIR$/matplot/11subplot绘制多图1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1854385060/numpy/random/mtrand.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="1598" column="4" selection-start-line="1598" selection-start-column="4" selection-end-line="1598" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/ProgramData/Anaconda3/envs/deeplearning/Lib/site-packages/matplotlib/axes/_base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-109">
-              <caret line="850" column="8" selection-start-line="850" selection-start-column="8" selection-end-line="850" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -171,6 +104,12 @@
         <option value="$PROJECT_DIR$/matplot/03设置坐标轴.py" />
         <option value="$PROJECT_DIR$/matplot/04设置legend图例.py" />
         <option value="$PROJECT_DIR$/matplot/06绘制散点图.py" />
+        <option value="$PROJECT_DIR$/matplot/07绘制柱状图.py" />
+        <option value="$PROJECT_DIR$/matplot/08绘制等高线.py" />
+        <option value="$PROJECT_DIR$/matplot/09绘制image.py" />
+        <option value="$PROJECT_DIR$/matplot/10绘制3D图形.py" />
+        <option value="$PROJECT_DIR$/matplot/11subplot绘制多图.py" />
+        <option value="$PROJECT_DIR$/matplot/11subplot绘制多图1.py" />
       </list>
     </option>
   </component>
@@ -233,8 +172,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.06绘制散点图">
-    <configuration name="02figure的简单使用" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.11subplot绘制多图1">
+    <configuration name="08绘制等高线" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deeplearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -247,7 +186,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/02figure的简单使用.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/08绘制等高线.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -256,7 +195,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="03设置坐标" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="09绘制image" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deeplearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -269,7 +208,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/03设置坐标.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/09绘制image.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -278,7 +217,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="03设置坐标轴" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="10绘制3D图形" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deeplearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -291,7 +230,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/03设置坐标轴.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/10绘制3D图形.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -300,7 +239,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="04设置legend图例" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="11subplot绘制多图" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deeplearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -313,7 +252,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/04设置legend图例.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/11subplot绘制多图.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -322,7 +261,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="06绘制散点图" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="11subplot绘制多图1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="deeplearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -335,7 +274,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/06绘制散点图.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/matplot/11subplot绘制多图1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -345,19 +284,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.02figure的简单使用" />
-      <item itemvalue="Python.03设置坐标" />
-      <item itemvalue="Python.03设置坐标轴" />
-      <item itemvalue="Python.04设置legend图例" />
-      <item itemvalue="Python.06绘制散点图" />
+      <item itemvalue="Python.08绘制等高线" />
+      <item itemvalue="Python.09绘制image" />
+      <item itemvalue="Python.10绘制3D图形" />
+      <item itemvalue="Python.11subplot绘制多图" />
+      <item itemvalue="Python.11subplot绘制多图1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.06绘制散点图" />
-        <item itemvalue="Python.04设置legend图例" />
-        <item itemvalue="Python.03设置坐标轴" />
-        <item itemvalue="Python.03设置坐标" />
-        <item itemvalue="Python.02figure的简单使用" />
+        <item itemvalue="Python.11subplot绘制多图1" />
+        <item itemvalue="Python.11subplot绘制多图" />
+        <item itemvalue="Python.10绘制3D图形" />
+        <item itemvalue="Python.09绘制image" />
+        <item itemvalue="Python.08绘制等高线" />
       </list>
     </recent_temporary>
   </component>
@@ -472,29 +411,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/envs/deeplearning/Lib/site-packages/matplotlib/axes/_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="850" column="8" selection-start-line="850" selection-start-column="8" selection-end-line="850" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/matplot/03设置坐标轴.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="20" column="34" lean-forward="true" selection-start-line="25" selection-end-line="26" selection-end-column="42" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matplot/04设置legend图例.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-69">
-          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding>
-            <element signature="e#39#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -513,6 +435,83 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/04设置legend图例.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <element signature="e#39#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/07绘制柱状图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/08绘制等高线.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/09绘制image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/10绘制3D图形.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/envs/deeplearning/Lib/site-packages/matplotlib/axes/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-109">
+          <caret line="850" column="8" selection-start-line="850" selection-start-column="8" selection-end-line="850" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/11subplot绘制多图.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/1.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplot/11subplot绘制多图1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
