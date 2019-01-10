@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+</head>
+<body>
+
+<script>
+    var y = 300;
+
+    function setup() {
+        createCanvas(720, 400);
+        stroke(255);
+        noLoop();
+    }
+
+    function draw() {
+        background(0);
+        y = y - 1;
+        if (y<0){
+            y = height;
+        }
+        line(0,y,width,y);
+    }
+
+    function mousePressed() {
+        redraw();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+</head>
+<body>
+
+<script>
+    
+function setup() {
+    createCanvas(720,400);
+}
+
+function draw() {
+    background(127);
+    noStroke();
+
+    for(var i=0;i<height;i+=20){
+        fill(129,206,15);
+        rect(0,i,width,10);
+        fill(255);
+        rect(i,0,10,height);
+    }
+}
+</script>
+
+</body>
+</html>
