@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+</head>
+<body>
+
+<script>
+
+    //定义一个数组用于存放可移动的mover
+    var movers = [];
+    var liquid;
+
+    //启动
+    function setup() {
+        createCanvas(640,360);
+        reset();
+        liquid = new Liquid(0,height/2,width,height/2,0.1);
+    }
+
+    //绘画
+    function draw() {
+        background(127);
+        liquid.display();
+
+        for (var i=0;i<movers.length;i++){
+            //判断是否在水中
+            if (liquid.contains(movers[i])){
+                var dragForce = liquid.calculateDrag(movers[i]);
+                movers[i].applyForce(dragForce);
+            }
+            var gravity = createVector(0,0.1*movers[i].mass);
+            movers[i].applyForce(gravity);
+            movers[i].update();
+            movers[i].display();
+            movers[i].checkEdge();
+        }
+    }
+
+    //鼠标点击时重置
+    function mousePressed() {
+        reset();
+    }
+
+    //随机生成一些Mover
+    function reset() {
+        for (var i=0;i<9;i++){
+            movers[i]=new Mover(random(0.5,3),40+i*70,0);
+        }
+    }
+
+    //定义一个liquid类
+    var Liquid = function (x,y,w,h,c) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.c = c;
+    };
+
+
+    //定义一个属于Liquid的方法，用于判断mover是否在liquid内。
+    Liquid.prototype.contains = function (m) {
+        var l = m.position;
+        return l.x > this.x&&l.x<this.x+this.w&&l.y>this.y&&l.y<this.y+this.h;
+    };
+
+    //计算mover所受到的drag力。
+    Liquid.prototype.calculateDrag = function (m) {
+          var speed = m.velocity.mag();
+          var dragMagnitude = this.c * speed * speed;
+
+          var dragForce = m.velocity.copy();
+          dragForce.mult(-1);
+
+          dragForce.normalize();
+          dragForce.mult(dragMagnitude);
+          return dragForce;
+    };
+
+    //将liquid绘制出来
+    Liquid.prototype.display = function () {
+        noStroke();
+        fill(50);
+        rect(this.x,this.y,this.w,this.h);
+    };
+
+
+    //定义Mover类
+    var Mover = function (m,x,y) {
+        this.mass = m;
+        this.position = createVector(x,y);
+        this.velocity = createVector(0,0);
+        this.acceleration = createVector(0,0);
+    };
+
+    // 计算Mover的加速度
+    Mover.prototype.applyForce =function (force) {
+        var f = p5.Vector.div(force,this.mass);
+        this.acceleration.add(f);
+    };
+
+    // 更新Mover的位置
+    Mover.prototype.update = function () {
+        this.velocity.add(this.acceleration);
+        this.position.add(this.velocity);
+        this.acceleration.mult(0);
+    };
+
+    //绘制Mover
+    Mover.prototype.display = function () {
+        stroke(0);
+        strokeWeight(2);
+        fill(255,127);
+        ellipse(this.position.x,this.position.y,this.mass*16,this.mass*16);
+    };
+
+    //底部反弹
+    Mover.prototype.checkEdge = function () {
+        if (this.position.y > (height - this.mass*8)){
+            this.velocity.y *= -0.9;
+            this.position.y = height - this.mass*8;
+        }
+    };
+
+
+</script>
+
+</body>
+</html>

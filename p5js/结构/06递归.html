@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+</head>
+<body>
+
+<script>
+
+    function setup() {
+        createCanvas(720,400);
+        background(255);
+        noLoop();
+        noStroke();
+    }
+
+    function draw() {
+        var x =width;
+        var y = height;
+        drawTarget(0,0,x,y,5)
+    }
+
+    function drawTarget(xloc,yloc,x,y,level) {
+        var gray = 126 * level/4;
+        fill(gray);
+        rect(xloc,yloc,x,y);
+        if (level >0){
+            x = x/2;
+            y = y/2;
+            level = level-1;
+            drawTarget(xloc,yloc,x,y,level);
+            xloc=(x-xloc)/2+xloc;
+            yloc=(y-yloc)/2+yloc;
+
+
+            console.log(level);
+            drawTarget(xloc,yloc,x,y,level)
+        }
+    }
+
+</script>
+
+</body>
+</html>
