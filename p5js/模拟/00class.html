@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+</head>
+<body>
+
+<script>
+
+    class Vector2d{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+
+        add(other){
+            this.x += other.x;
+            this.y += other.y;
+        }
+
+
+        static print(){
+            console.log("123234");
+        }
+
+        get X(){
+            return this.x;
+        }
+
+        set X(value){
+            this.x = value;
+        }
+    }
+
+</script>
+
+</body>
+</html>
