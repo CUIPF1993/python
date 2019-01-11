@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0023a0be-24b0-4839-aec0-0584283b1f31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/01.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p5.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟box2d/01exercise.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟box2d/02exercise_solved.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟box2d/03boxfixture.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟box2d/03boxfixture02.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟box2d/04ChainShape_Simple.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟toxic/01SimpleSpring.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟toxic/02SoftSpring.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/物理模拟toxic/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,25 +31,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="13" />
-          <entry key="js" value="4" />
+          <entry key="html" value="22" />
+          <entry key="js" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="13" />
-          <entry key="JavaScript" value="4" />
+          <entry key="HTML" value="22" />
+          <entry key="JavaScript" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="7243" />
+          <entry key="html" value="10471" />
           <entry key="js" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="7243" />
+          <entry key="HTML" value="10471" />
           <entry key="JavaScript" value="27" />
         </counts>
       </usages-collector>
@@ -50,83 +57,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/结构/05函数.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/结构/06递归.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/图像/01image.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/颜色/Linear_Gradient.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="84" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/模拟/01Force.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="84" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/模拟/02ParticleSystem.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="940">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/模拟/00class.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="34" selection-start-line="34" selection-end-line="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/模拟/03Flocking.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/01.html">
+        <entry file="file://$PROJECT_DIR$/物理模拟box2d/04ChainShape_Simple.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+            <state relative-caret-position="260">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/box2d-html5.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="1052" column="319" selection-start-line="1052" selection-start-column="319" selection-end-line="1052" selection-end-column="319" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libraries/box2d-helper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2313">
+              <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -137,6 +90,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -161,6 +115,14 @@
         <option value="$PROJECT_DIR$/模拟/00class.html" />
         <option value="$PROJECT_DIR$/模拟/03Flocking.html" />
         <option value="$PROJECT_DIR$/01.html" />
+        <option value="$PROJECT_DIR$/物理模拟toxic/02SoftSpring.html" />
+        <option value="$PROJECT_DIR$/物理模拟toxic/01SimpleSpring.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d/01exercise.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d/02exercise_solved.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d/03boxfixture02.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d/03boxfixture.html" />
+        <option value="$PROJECT_DIR$/物理模拟box2d/04ChainShape_Simple.html" />
       </list>
     </option>
   </component>
@@ -170,7 +132,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-9" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -192,7 +154,12 @@
             <path>
               <item name="p5js" type="b2602c69:ProjectViewProjectNode" />
               <item name="p5js" type="462c0819:PsiDirectoryNode" />
-              <item name="颜色" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="p5js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="p5js" type="462c0819:PsiDirectoryNode" />
+              <item name="物理模拟box2d" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -210,11 +177,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python\p5js\物理模拟box2d" />
+      <recent name="D:\python\p5js\物理模拟toxic" />
+      <recent name="D:\python\p5js\libraries" />
       <recent name="D:\python\p5js" />
       <recent name="D:\python\p5js\模拟" />
-      <recent name="D:\python\p5js\颜色" />
-      <recent name="D:\python\p5js\图像" />
-      <recent name="D:\python\p5js\结构" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -243,7 +210,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="0" width="1936" height="1056" extended-state="1" />
+    <frame x="-9" y="0" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -360,12 +328,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/模拟/00class.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="34" selection-start-line="34" selection-end-line="35" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/libraries/p5.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/模拟/03Flocking.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -374,10 +338,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/模拟/00class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="34" selection-start-line="34" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟toxic/02SoftSpring.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/toxichelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/toxiclibs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/p5.dom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1380">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟toxic/01SimpleSpring.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/01.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d/01exercise.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d/03boxfixture02.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d/03boxfixture.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d/02exercise_solved.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/box2d-html5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="1052" column="319" selection-start-line="1052" selection-start-column="319" selection-end-line="1052" selection-end-column="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libraries/box2d-helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2313">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/物理模拟box2d/04ChainShape_Simple.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
         </state>
       </provider>
     </entry>

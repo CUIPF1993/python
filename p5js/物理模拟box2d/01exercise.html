@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/box2d-html5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/box2d-helper.js"></script>
+</head>
+<body>
+
+<script>
+
+    let boxes = [];
+
+    function setup() {
+        createCanvas(640, 360);
+    }
+
+    function draw() {
+        background(51);
+
+        // Boxes fall from the top every so often
+        if (isMousePressed) {
+            let b = new Box(mouseX, mouseY);
+            boxes.push(b);
+        }
+        // Display all the boxes
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].display();
+        }
+    }
+
+    // Drawing the box
+    class Box {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.w = 16;
+            this.h = 16;
+        }
+
+        // Drawing the box
+        display() {
+            rectMode(CENTER);
+            fill(127);
+            stroke(200);
+            strokeWeight(2);
+            rect(this.x, this.y, this.w, this.h);
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

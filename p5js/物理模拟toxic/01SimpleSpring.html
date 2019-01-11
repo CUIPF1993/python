@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script language="javascript" type="text/javascript" src="../libraries/toxiclibs.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/toxichelper.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/p5.dom.js"></script>
+
+</head>
+<body>
+
+<script>
+
+    let physics;
+    let p1;
+    let p2;
+
+    function setup() {
+        createCanvas(640,360);
+
+        //初始化物理世界
+        physics = new VerletPhysics2D();
+        physics.addBehavior(new GravityBehavior(new Vec2D(0,0.5)));
+
+        //设置物理世界的大小
+        physics.setWorldBounds(new Rect(0,0,width,height));
+
+        //初始化两个粒子
+        p1 = new Particle(new Vec2D(width/2,20));
+        p2 = new Particle(new Vec2D(width/2+160,20));
+
+        //固定p1
+        p1.lock();
+
+        //在两个小球之间添加弹簧
+        let spring = new VerletSpring2D(p1,p2,160,0.01);
+
+        //添加将创建的粒子等添加至物理世界中
+        physics.addParticle(p1);
+        physics.addParticle(p2);
+        physics.addSpring(spring);
+
+    }
+
+    function draw() {
+        physics.update();
+
+        background(51);
+        stroke(200);
+        strokeWeight(2);
+        line(p1.x,p1.y,p2.x,p2.y);
+
+        p1.display();
+        p2.display();
+
+        //拖动小球2
+        if (mouseIsPressed){
+            p2.lock();
+            p2.x = mouseX;
+            p2.y = mouseY;
+            p2.unlock();
+        }
+    }
+
+    class Particle extends VerletParticle2D{
+        constructor(position){
+            super(position);
+        }
+
+        display(){
+            fill(127);
+            stroke(200);
+            strokeWeight(2);
+            ellipse(this.x,this.y,32,32);
+        }
+    }
+
+
+
+</script>
+
+
+</body>
+</html>

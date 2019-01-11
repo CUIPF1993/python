@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/box2d-html5.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/box2d-helper.js"></script>
+</head>
+<body>
+
+<script>
+
+    class Box {
+        constructor(x, y) {
+            this.w = 16;
+            this.h = 16;
+
+            //定义一个body,有自己的位置,速度
+            let bd = new box2d.b2BodyDef();
+            bd.type = box2d.b2BodyType.b2_dynamicBody;
+            bd.position = scaleToWorld(x, y);
+
+            //定义一个fixture,设置物体的一些属性，比如密度、摩擦系数、复原性
+            let fd = new box2d.b2FixtureDef();
+            fd.shape = new box2d.b2PolygonShape();
+            fd.shape.SetAsBox(scaleToWorld(this.w / 2), scaleToWorld(this.h / 2));
+
+            //设置fixture的物理系数
+            fd.density = 1.0;
+            fd.friction = 0.5;
+            fd.restitution = 0.5;
+
+            this.body = world.CreateBody(bd);
+            this.body.CreateFixture(fd);
+        }
+
+        display() {
+            let pos = scaleToPixels(this.body.GetPosition());
+            let a = this.body.GetAngleRadians();
+
+            rectMode(CENTER);
+            push();
+            translate(pos.x, pos.y);
+            rotate(a);
+            fill(127);
+            stroke(200);
+            strokeWeight(2);
+            rect(0, 0, this.w, this.h);
+            pop();
+        }
+    }
+
+    class Boundary {
+        constructor(x, y, w, h) {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+
+            //定义一个body,有自己的位置,速度
+            let bd = new box2d.b2BodyDef();
+            bd.type = box2d.b2BodyType.b2_staticBody;
+            bd.position = scaleToWorld(x, y);
+
+
+            //定义一个fixture,设置物体的一些属性，比如密度、摩擦系数、复原性
+            let fd = new box2d.b2FixtureDef();
+            fd.shape = new box2d.b2PolygonShape();
+            fd.shape.SetAsBox(scaleToWorld(this.w / 2), scaleToWorld(this.h / 2));
+
+
+            //设置fixture的物理系数
+            fd.density = 1.0;
+            fd.friction = 0.5;
+            fd.restitution = 0.2;
+
+            this.body = world.CreateBody(bd);
+            this.body.CreateFixture(fd);
+        }
+
+        display() {
+            fill(127);
+            stroke(0);
+            rectMode(CENTER);
+            rect(this.x, this.y, this.w, this.h);
+
+        }
+
+    }
+
+
+    let world;
+    let boxes = [];
+    let boundaries = [];
+
+    function setup() {
+        createCanvas(640, 360);
+        world = createWorld(new box2d.b2Vec2(0, 0));
+        boundaries.push(new Boundary(width / 4, height - 5, width / 2 - 50, 10));
+        boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10));
+    }
+
+    function draw() {
+        background(51);
+
+        let timeStep = 1.0 / 30;
+        world.Step(timeStep, 10, 10);
+
+        if (mouseIsPressed) {
+            let b = new Box(mouseX, mouseY);
+            boxes.push(b);
+        }
+
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].display();
+        }
+
+        for (let i = 0; i < boundaries.length; i++) {
+            boundaries[i].display();
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>
