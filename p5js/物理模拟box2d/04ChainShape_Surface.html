@@ -77,11 +77,8 @@
 
     //定义一个surface
     class Surface {
-        constructor() {
-            this.surface = [];
-            this.surface.push(new box2d.b2Vec2(0, height / 2));
-            this.surface.push(new box2d.b2Vec2(width / 2, height / 2 + 50));
-            this.surface.push(new box2d.b2Vec2(width, height / 2));
+        constructor(vecs) {
+            this.surface = vecs;
 
             for (let i = 0; i < this.surface.length; i++) {
                 this.surface[i] = scaleToWorld(this.surface[i]);
@@ -134,8 +131,11 @@
         createCanvas(640, 360);
 
         world = createWorld();
-
-        surface = new Surface();
+        let v1 = new box2d.b2Vec2(0, height / 2);
+        let v2 = new box2d.b2Vec2(width / 2, height / 2 + 50);
+        let v3 = new box2d.b2Vec2(width, height / 2);
+        let vecs = [v1,v2,v3];
+        surface = new Surface(vecs);
     }
 
     function draw() {
