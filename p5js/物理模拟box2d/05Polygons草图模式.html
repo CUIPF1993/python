@@ -177,11 +177,14 @@
         boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 20, 0));
         boundaries.push(new Boundary(width - 5, height / 2, 20, height, 0));
         boundaries.push(new Boundary(5, height / 2, 20, height, 0));
+        boundaries.push(new Boundary(width/2-50, height - 150, 250, 50));
+
     }
 
 
     function draw() {
-        background(51);
+        colorMode(HSB, 100);
+        background(color(15, 65,40));
 
         let timeStep = 1.0 / 30;
         world.Step(timeStep, 10, 10);

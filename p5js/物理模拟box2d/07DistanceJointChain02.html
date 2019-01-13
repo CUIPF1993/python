@@ -16,7 +16,8 @@
 
     let world;
     let boundaries = [];
-    let pairs = [];
+    let pairs;
+    let vets = [];
 
     function setup() {
         createCanvas(640, 360);
@@ -24,6 +25,13 @@
 
         boundaries.push(new Boundary(width / 4, height - 5, width / 2 - 50, 10));
         boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10));
+
+        for (let i = 0; i < 10; i++) {
+            let v = createVector(height / 2, i * 30 + 10);
+            vets.push(v);
+        }
+
+        pairs = new Chain(vets);
     }
 
     function draw() {
@@ -35,20 +43,8 @@
         for (let i = 0; i < boundaries.length; i++) {
             boundaries[i].display();
         }
-
-        for (let i = pairs.length-1; i >= 0; i--) {
-            pairs[i].display();
-            if (pairs[i].done()) {
-                pairs.slice(i, 1)
-            }
-        }
+        pairs.display();
     }
-
-    function mousePressed() {
-        let p = new Pair(mouseX, mouseY);
-        pairs.push(p);
-    }
-
 
     class Boundary {
         constructor(x, y, w, h) {
@@ -90,8 +86,8 @@
 
     //定义一个动态的粒子，具有一定的角速度，和线速度
     class Particle {
-        constructor(x, y) {
-            this.r = 8;
+        constructor(x, y,r) {
+            this.r = r;
 
             //定义一个body
             let bd = new box2d.b2BodyDef();
@@ -150,10 +146,10 @@
     }
 
     class Pair {
-        constructor(x, y) {
+        constructor(p1, p2) {
             this.len = 32;
-            this.p1 = new Particle(x, y);
-            this.p2 = new Particle(x + random(-1, 1), y + random(-1, 1));
+            this.p1 = p1;
+            this.p2 = p2;
 
             let djd = new box2d.b2DistanceJointDef();
 
@@ -167,22 +163,31 @@
 
             let dj = world.CreateJoint(djd);
         }
+    }
 
-        done() {
-            return this.p1.done() && this.p2.done();
+
+    class Chain {
+        constructor(particles) {
+            let pairs = [];
+            for (let i =0;i<particles.length-2;i++){
+                let pair = new Pair(particles[i],particles[i+1]);
+                pairs.push(pair);
+            }
+            this.pairs = pairs;
         }
 
         display() {
+            for (let i = 0; i < this.pairs.length; i++) {
+                let pair = this.pairs[i];
+                let pos1 = scaleToPixels(pair.p1.body.GetPosition());
+                let pos2 = scaleToPixels(pair.p2.body.GetPosition());
+                // console.log(pos1);
+                stroke(200);
+                strokeWeight(2);
+                line(pos1.x, pos1.y, pos2.x, pos2.y);
 
-            let pos1 = scaleToPixels(this.p1.body.GetPosition());
-            let pos2 = scaleToPixels(this.p2.body.GetPosition());
-
-            stroke(200);
-            strokeWeight(2);
-            line(pos1.x, pos1.y, pos2.x, pos2.y);
-
-            this.p1.display();
-            this.p2.display();
+                pair.p1.display();
+            }
         }
     }
 

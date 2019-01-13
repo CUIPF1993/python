@@ -16,14 +16,23 @@
 
     let world;
     let boundaries = [];
-    let pairs = [];
+    let pairs;
+    let vets = [];
 
     function setup() {
         createCanvas(640, 360);
         world = createWorld();
 
         boundaries.push(new Boundary(width / 4, height - 5, width / 2 - 50, 10));
-        boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10));
+        boundaries.push(new Boundary(3 * width / 4, height - 50, width / 2 - 50, 10))
+        boundaries.push(new Boundary(width/2-50, height - 150, 150, 50));
+
+        for (let i = 0; i < 15; i++) {
+            let v = createVector(20+i*35, 100);
+            vets.push(v);
+        }
+
+        pairs = new Chain(vets);
     }
 
     function draw() {
@@ -35,20 +44,8 @@
         for (let i = 0; i < boundaries.length; i++) {
             boundaries[i].display();
         }
-
-        for (let i = pairs.length-1; i >= 0; i--) {
-            pairs[i].display();
-            if (pairs[i].done()) {
-                pairs.slice(i, 1)
-            }
-        }
+        pairs.display();
     }
-
-    function mousePressed() {
-        let p = new Pair(mouseX, mouseY);
-        pairs.push(p);
-    }
-
 
     class Boundary {
         constructor(x, y, w, h) {
@@ -144,16 +141,15 @@
             stroke(200);
             strokeWeight(2);
             ellipse(0, 0, this.r * 2, this.r * 2);
-            line(0, 0, this.r, 0);
             pop();
         }
     }
 
     class Pair {
-        constructor(x, y) {
+        constructor(p1, p2) {
             this.len = 32;
-            this.p1 = new Particle(x, y);
-            this.p2 = new Particle(x + random(-1, 1), y + random(-1, 1));
+            this.p1 = p1;
+            this.p2 = p2;
 
             let djd = new box2d.b2DistanceJointDef();
 
@@ -167,22 +163,56 @@
 
             let dj = world.CreateJoint(djd);
         }
+    }
 
-        done() {
-            return this.p1.done() && this.p2.done();
+
+    class Chain {
+        constructor(vets) {
+            let pre;
+            let next;
+            let pair;
+            let pairs = [];
+            for (let i = 0; i < vets.length - 2; i++) {
+                if (i === 0) {
+                    pre = new Particle(vets[i].x, vets[i].y);
+                    next = new Particle(vets[i+1].x, vets[i+1].y);
+                    pair = new Pair(pre, next);
+                    pairs.push(pair)
+                } else {
+                    pre = pairs[i-1].p2;
+                    console.log(scaleToPixels(pre.body.GetPosition()));
+                    next = new Particle(vets[i].x, vets[i].y);
+                    pair = new Pair(pre, next);
+                    pairs.push(pair)
+                }
+            }
+            this.pairs = pairs;
+
+            for (let i = 0; i < this.pairs.length; i++) {
+                let pair = this.pairs[i];
+                let pos1 = scaleToPixels(pair.p1.body.GetPosition());
+                let pos2 = scaleToPixels(pair.p2.body.GetPosition());
+                // console.log(pos1);
+                stroke(200);
+                strokeWeight(2);
+                line(pos1.x, pos1.y, pos2.x, pos2.y);
+
+                pair.p1.display();
+            }
         }
 
         display() {
-
-            let pos1 = scaleToPixels(this.p1.body.GetPosition());
-            let pos2 = scaleToPixels(this.p2.body.GetPosition());
-
-            stroke(200);
-            strokeWeight(2);
-            line(pos1.x, pos1.y, pos2.x, pos2.y);
-
-            this.p1.display();
-            this.p2.display();
+            for (let i = 0; i < this.pairs.length; i++) {
+                let pair = this.pairs[i];
+                let pos1 = scaleToPixels(pair.p1.body.GetPosition());
+                let pos2 = scaleToPixels(pair.p2.body.GetPosition());
+                // console.log(pos1);
+                stroke(200);
+                strokeWeight(2);
+                line(pos1.x, pos1.y, pos2.x, pos2.y);
+                pair.p1.display();
+                pair.p2.display();
+            }
         }
     }
 
