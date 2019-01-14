@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <script src="/static/jquery-3.3.1.js"></script>
+    <link href="/static/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script src="/static/p5/p5.js"></script>
+    <script src="/static/p5/p5.dom.js"></script>
+    <script src="/static/p5/box2d-helper.js"></script>
+    <script src="/static/p5/box2d-html5.js"></script>
+    <script src="/static/p5/p5.collide2d.js"></script>
+    <script src="/static/p5/p5.scribble.js"></script>
+    <script src="/static/p5/toxiclibs.js"></script>
+    <script src="/static/p5/toxichelper.js"></script>
+
+
+    {% block link%}
+    <!--link 文件-->
+    {% endblock link %}
+
+
+    {% block css %}
+    <!--CSS样式-->
+    {% endblock css%}
+    <style>
+        .navbar-brand {
+            color: #bc7eee
+        }
+
+        .bs-docs-footer {
+            background: #f5f5f5;
+            margin-top: 400px;
+            padding-bottom: 30px;
+        }
+
+        .header {
+            background: #f5f5f5;
+        }
+    </style>
+
+</head>
+<body>
+<div class="header">
+    <!--CcC图标-->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a class="navbar-brand navbar-brand" href="" style="font-size: 25px;">p5* studio</a>
+        </div>
+        <!--链接导航-->
+        <div class="navbar-right">
+            <a class="navbar-brand" href="/articles/">作品一览</a>
+            <a class="navbar-brand" href="#">程序库</a>
+            <a class="navbar-brand" href="#">Processing</a>
+            <a class="navbar-brand" href="#">Rhino</a>
+            <a class="navbar-brand" href="/edit/">编辑文章</a>
+            <a class="navbar-brand" href="/login">登陆|注册</a>
+
+            <!--<ul class="navbar-brand navbar-right">-->
+            <!--<li class="dropdown">-->
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+            <!--aria-haspopup="true" aria-expanded="false"><span-->
+            <!--class="caret"></span></a>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">我的主页</a></li>-->
+            <!--<li><a href="#">设置</a></li>-->
+            <!--<li role="separator" class="divider"></li>-->
+            <!--<li><a href="/blog/logout">注销</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </nav>
+</div>
+<div class="container">
+
+    {% block content %}
+    <!--放置页面内容-->
+    {% endblock %}
+
+
+</div>
+<!--<footer class="bs-docs-footer">-->
+    <!--<hr>-->
+
+    <!--<div class="container">-->
+        <!--<ul class="bs-docs-footer-links">-->
+            <!--<li><a href="/">p5* studio</a></li>-->
+            <!--<li><a href="/articles/">科普文章</a></li>-->
+            <!--<li><a href="#">优站精选</a></li>-->
+            <!--<li><a href="">关于</a></li>-->
+        <!--</ul>-->
+
+        <!--<p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo"-->
+                                                                   <!--target="_blank">@mdo</a> and <a-->
+                <!--href="https://twitter.com/fat" target="_blank">@fat</a>. Maintained by the <a-->
+                <!--href="https://github.com/orgs/twbs/people">core team</a> with the help of <a-->
+                <!--href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>-->
+
+        <!--<p>本项目源码受 <a rel="license" href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>开源协议保护，文档受-->
+            <!--<a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a> 开源协议保护。-->
+        <!--</p>-->
+
+    <!--</div>-->
+<!--</footer>-->
+
+{% block scriptlink %}
+
+{% endblock %}
+
+{% block script %}
+<!--放置javascipt代码-->
+{% endblock %}
+</body>
+</html>
