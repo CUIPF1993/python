@@ -17,4 +17,4 @@ def intdex():
 
 @art.route('/articles')
 def articles():
-    return "articles"
+    return render_template('articles.html')

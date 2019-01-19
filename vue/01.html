@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+   <p>{{message}}</p>
+</div>
+
+<div id="app-2">
+    <span v-bind:title="message">
+        鼠标停留显示消息
+    </span>
+</div>
+
+<div id="app-3">
+    <span v-if="seen">现在那看到我</span>
+    <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ol>
+    <span v-on:click="change">{{message}}</span>
+    <input type="text" v-model="message">
+</div>
+
+
+<script>
+    var app=new Vue({
+        el:"#app",
+        data:{
+            message:"hello Vue"
+        }
+    });
+
+    var app2 = new Vue({
+        el:"#app2",
+        data:{
+            message: "页面加载于"+new Date().toLocaleString(),
+        }
+    });
+
+
+    var app3 = new Vue({
+        el:"#app-3",
+        data:{
+            seen:true,
+            todos:[
+                {text:"学习html"},
+                {text:"学习Javascript"},
+                {text:"学习牛项目"}
+            ],
+            message:"haochi"
+        },
+        methods:{
+            change:function () {
+                this.message = this.message + "**"
+            }
+        }
+    })
+</script>
+</body>
+</html>
