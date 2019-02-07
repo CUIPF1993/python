@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11fbfd27-2b05-45db-bf66-41320edde646" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../flask/p5site/p5site/utils/ret.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/.idea/p5site.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/.idea/p5site.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/templates/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/utils/form.py" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/utils/form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/views/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/views/account.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flask/p5site/p5site/views/article.py" beforeDir="false" afterPath="$PROJECT_DIR$/../flask/p5site/p5site/views/article.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,10 +14,11 @@
     <session id="-1605088318">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.5" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -56,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/01.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            <state relative-caret-position="253">
+              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -88,8 +80,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="y" value="2" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -99,8 +91,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -137,9 +139,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -155,12 +158,12 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="right" id="Nativescript Palette" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Nativescript Palette" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,8 +175,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/01.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        <state relative-caret-position="253">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
         </state>
       </provider>
     </entry>

@@ -2,7 +2,8 @@ from flask import Blueprint
 from flask import render_template
 from flask import request
 from flask import jsonify
-
+from sqlalchemy import Integer
+from sqlalchemy.ext.declarative import declarative_base
 from p5site.utils import form
 from p5site.utils.ret import BaseResponse
 
